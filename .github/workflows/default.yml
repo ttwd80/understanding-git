@@ -26,3 +26,10 @@ jobs:
         cd ~/work
         git init .
         ls -Rla
+    - name: command 1.2 - git init (twice)
+      run:  |
+        rm -rf ~/work
+        mkdir ~/work
+        cd ~/work
+        git init .
+        git init .
