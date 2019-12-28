@@ -13,6 +13,6 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        git --version
+        git --version | grep "^git version $(cat git-version.txt)$"
         echo Add other actions to build,
         echo test, and deploy your project.
