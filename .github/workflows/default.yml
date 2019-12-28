@@ -31,7 +31,3 @@ jobs:
       run:  |
         cd ~
         rm -rf ~/work
-        mkdir ~/work
-        cd ~/work
-        git init .
-        git init .
