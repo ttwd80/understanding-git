@@ -12,7 +12,7 @@ jobs:
     - name: Verify git version
       run:  git --version | grep "^git version $(cat git-version.txt)$"
     - name: Show git commands
-      run:  git help -a 
+      run:  git help -a
     - name: Show list of git commands
       run:  git help -a | grep "^   [a-z]" | awk '{print $1}' | sort
     - name: Compare git commands with git-commands.txt
@@ -21,10 +21,8 @@ jobs:
       run:  git init --help
     - name: command 1.1 - git init
       run:  |
-        rm -rf ~/work 
+        rm -rf ~/work
         mkdir ~/work
         cd ~/work
         git init .
-        ls -la
-        ls -la .git
-      
+        ls -Rla
