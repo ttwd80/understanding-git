@@ -17,3 +17,6 @@ jobs:
       run:  git help -a | grep "^   [a-z]" | awk '{print $1}' | sort
     - name: Compare git commands with git-commands.txt
       run:  diff <(git help -a | grep "^   [a-z]" | awk '{print $1}' | sort) git-commands.txt
+    - name: command 1 - git init
+      run:  git init --help
+      
