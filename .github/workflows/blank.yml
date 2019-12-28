@@ -14,6 +14,6 @@ jobs:
     - name: Show git commands
       run:  git help -a 
     - name: Show list of git commands
-      run:  git help -a | grep "^   [a-z]" | awk '{print $1}'
+      run:  git help -a | grep "^   [a-z]" | awk '{print $1}' | sort
     - name: Compare git commands with git-commands.txt
-      run:  diff <(git help -a | grep "^   [a-z]" | awk '{print $1}') git-commands.txt
+      run:  diff <(git help -a | grep "^   [a-z]" | awk '{print $1}' | sort) git-commands.txt
