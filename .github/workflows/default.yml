@@ -20,12 +20,6 @@ jobs:
     - name: command 1 - git init help
       run:  git init --help
     - name: command 1.1 - git init
-      run:  |
-        cd
-        rm -rf ~/work
-        mkdir ~/work
-        cd ~/work
-        git init .
-        ls -Rla
+      run: pwd
     - name: command 1.2 - git init - twice
       run: pwd
