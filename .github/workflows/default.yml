@@ -29,4 +29,5 @@ jobs:
         ls -Rla
     - name: command 1.2 - git init (twice)
       run:  |
+        pwd
         cd
