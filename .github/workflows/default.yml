@@ -30,4 +30,3 @@ jobs:
     - name: command 1.2 - git init (twice)
       run:  |
         cd ~
-        rm -rf ~/work
