@@ -14,5 +14,6 @@ jobs:
     - name: Run a multi-line script
       run: |
         git --version | grep "^git version $(cat git-version.txt)$"
+        echo $?
         echo Add other actions to build,
         echo test, and deploy your project.
