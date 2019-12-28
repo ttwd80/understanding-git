@@ -26,4 +26,5 @@ jobs:
         cd ~/work
         git init .
         ls -la
+        ls -la .git
       
