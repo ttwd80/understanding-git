@@ -1,7 +1,6 @@
 add
 bisect
 branch
-checkout
 clone
 commit
 diff
@@ -15,7 +14,9 @@ pull
 push
 rebase
 reset
+restore
 rm
 show
 status
+switch
 tag
