@@ -12,6 +12,6 @@ jobs:
     - name: Verify git version
       run:  git --version | grep "^git version $(cat git-version.txt)$"
     - name: Show git commands
-      run:  echo $(git help -a | grep "^  [a-z]") | tr ' ' '\n'
+      run:  git help -a
     - name: Verify git commands
       run:  diff <(git help | grep "^   [a-z]" | cut -f 4 -d' ' | sort) git-commands.txt
