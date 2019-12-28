@@ -21,6 +21,7 @@ jobs:
       run:  git init --help
     - name: command 1.1 - git init
       run:  |
+        rm -rf ~/work 
         mkdir ~/work
         cd ~/work
         git init .
