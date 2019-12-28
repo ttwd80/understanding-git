@@ -1,3 +1,3 @@
-docker init
+git init
 ===
-docker init
+git init
