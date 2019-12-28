@@ -11,9 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Verify git version
       run:  git --version | grep "^git version $(cat git-version.txt)$"
-    - name: Create users
-      run: |
-        useradd alice  
     - name: Show git commands
       run:  git help -a 
     - name: Show list of git commands
@@ -27,4 +24,5 @@ jobs:
         mkdir ~/work
         cd ~/work
         git init .
+        ls -la
       
