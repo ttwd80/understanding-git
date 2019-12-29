@@ -40,14 +40,14 @@ jobs:
         git commit -m "added file-1.txt"
         git status
         git log
-    - name: command 1.2 - git --separate-git-dir
+    - name: git init --bare / status
       run:  |
         cd ~
         rm -rf ~/workspace
         mkdir ~/workspace
         cd ~/workspace
-        git init --separate-git-dir=./.repository .
-        ls -Rla
+        git init --bare
+        git status
     - name: command 1.3 - git init (twice)
       run:  |
         cd ~
