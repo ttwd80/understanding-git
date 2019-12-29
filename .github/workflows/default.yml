@@ -29,11 +29,13 @@ jobs:
         mkdir ~/workspace
         cd ~/workspace
         git init
-        ls -Rla
+        ls -la
         git status
         git log
         echo "content" > file-1.txt
         git add file-1.txt
+        echo "added"
+        git status
         git commit -m "added file-1.txt"
         git status
         git log
