@@ -80,6 +80,19 @@ jobs:
         ls -la
         cat .git
         git status || echo
-    - name: git init --shared - share is not allowed
+    - name: git init --shared - share is not allowed (default)
       run:  |
-        sudo id
+        cd ~
+        rm -rf ~/workspace
+        mkdir ~/workspace
+        cd ~/workspace
+        git init --shared=false
+        ls -ld .git
+    - name: git init --shared - group share
+      run:  |
+        cd ~
+        rm -rf ~/workspace
+        mkdir ~/workspace
+        cd ~/workspace
+        git init --shared=true
+        ls -ld .git
