@@ -80,3 +80,6 @@ jobs:
         ls -la
         cat .git
         git status || echo
+    - name: git init --shared - share is not allowed
+      run:  |
+        sudo id
