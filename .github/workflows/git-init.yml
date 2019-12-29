@@ -107,3 +107,12 @@ jobs:
         umask 007
         git init --shared=all
         ls -ld .git
+    - name: git init --shared - octal - nonsense value just to prove a point
+      run:  |
+        cd ~
+        rm -rf ~/workspace-git-init
+        mkdir ~/workspace-git-init
+        cd ~/workspace-git-init
+        umask 007
+        git init --shared=070
+        ls -ld .git
