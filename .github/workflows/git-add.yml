@@ -14,3 +14,14 @@ jobs:
         git add --help | grep -o -- "--[a-z-]*" | grep -v '^..$' | sort | uniq
         diff <(git add --help | grep -o -- "--[a-z-]*" | grep -v '^..$' | sort | uniq) commands/git-add-options.txt
         git add --help
+    - name: git add (basic)
+      run:  |
+        rm -rf ${HOME}/workspace/git-add
+        mkdir -p ${HOME}/workspace/git-add
+        cd ${HOME}/workspace/git-add
+        git init
+        echo "a" > file-a.txt
+        echo "b" > file-b.txt
+        git status
+        git add file-a.txt
+        git status
