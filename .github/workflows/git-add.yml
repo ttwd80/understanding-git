@@ -12,5 +12,5 @@ jobs:
     - name: git add help
       run:  |
         git add --help | grep -o -- "--[a-z-]*" | sort | uniq
-        diff <(git add --help | grep -o -- "--[a-z-]*" | sort | uniq) commands/git-add-options.txt
+        diff <(git add --help | grep -o -- "--[a-z-]*" | grep -v '^..$' | sort | uniq) commands/git-add-options.txt
         git add --help
