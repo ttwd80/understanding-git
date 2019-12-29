@@ -25,3 +25,14 @@ jobs:
         git status
         git add file-a.txt
         git status
+    - name: git add --all
+      run:  |
+        rm -rf ${HOME}/workspace/git-add
+        mkdir -p ${HOME}/workspace/git-add
+        cd ${HOME}/workspace/git-add
+        git init
+        echo "a" > file-a.txt
+        echo "b" > file-b.txt
+        git status
+        git add --all
+        git status
