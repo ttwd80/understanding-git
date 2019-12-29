@@ -116,7 +116,14 @@ jobs:
         umask 007
         git init --shared=0707
         ls -ld .git
-    - name: template
+    - name: git init --shared
       run:  |
         cd ~
-        ls -laR /usr/share/git-core/templates
+        rm -rf ~/git-template
+        mkdir ~/git-template
+        echo "garbage" > ~/git-template/garbage.txt
+        rm -rf ~/workspace-git-init
+        mkdir ~/workspace-git-init
+        cd ~/workspace-git-init
+        git init --template=~/git-template
+        ls -laR .git
