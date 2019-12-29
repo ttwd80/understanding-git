@@ -9,6 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: git init setup
+      run:  |
+        umask 007
     - name: git init help
       run:  |
         git init --help | grep -o -- "--[a-z-]*" | sort | uniq
