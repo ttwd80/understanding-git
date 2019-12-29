@@ -78,4 +78,5 @@ jobs:
         git status || echo
         git init --separate-git-dir=./.something-else
         ls -la
+        cat .git
         git status || echo
