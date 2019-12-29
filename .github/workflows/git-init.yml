@@ -116,3 +116,7 @@ jobs:
         umask 007
         git init --shared=0707
         ls -ld .git
+    - name: template
+      run:  |
+        cd ~
+        ls -laR /usr/share/git-core/templates
