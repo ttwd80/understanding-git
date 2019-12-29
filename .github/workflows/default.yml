@@ -29,6 +29,8 @@ jobs:
         mkdir ~/workspace
         cd ~/workspace
         git init
+        git config user.email "user1@gmail.com"
+        git config user.name "User 1"
         ls -la
         git status
         echo "content" > file-1.txt
