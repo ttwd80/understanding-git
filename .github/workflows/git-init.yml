@@ -50,7 +50,7 @@ jobs:
         mkdir -p ${HOME}/workspace/git-init-2
         cd ${HOME}/workspace/git-init-2
         git clone ${HOME}/workspace/git-init
-        cd ${HOME}/workspace/git-init-2/workspace/git-init
+        cd ${HOME}/workspace/git-init-2/git-init
         echo "Log of workspace-2"
         git log || echo
         git status || echo
@@ -65,7 +65,7 @@ jobs:
         mkdir -p ${HOME}/workspace/git-init-3
         cd ${HOME}/workspace/git-init-3
         git clone ${HOME}/workspace/git-init
-        cd ${HOME}/workspace/git-init-3/workspace/git-init
+        cd ${HOME}/workspace/git-init-3/git-init
         echo "Log of workspace-3"
         git log || echo
         git status || echo
