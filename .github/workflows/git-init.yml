@@ -35,7 +35,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         git init --bare
         git status || echo
@@ -43,11 +43,11 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         git init --bare
         rm -rf ${HOME}/workspace/git-init-2
-        mkdir ${HOME}/workspace/git-init-2
+        mkdir -p ${HOME}/workspace/git-init-2
         cd ${HOME}/workspace/git-init-2
         git clone ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init-2/workspace/git-init
@@ -62,7 +62,7 @@ jobs:
         git log
         git push origin
         rm -rf ${HOME}/workspace/git-init-3
-        mkdir ${HOME}/workspace/git-init-3
+        mkdir -p ${HOME}/workspace/git-init-3
         cd ${HOME}/workspace/git-init-3
         git clone ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init-3/workspace/git-init
@@ -73,7 +73,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         git status || echo
         git init --separate-git-dir=./.something-else
@@ -84,7 +84,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         umask 007
         git init --shared=false
@@ -93,7 +93,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         umask 007
         git init --shared=true
@@ -102,7 +102,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         umask 007
         git init --shared=all
@@ -111,7 +111,7 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         umask 007
         git init --shared=0707
@@ -120,10 +120,10 @@ jobs:
       run:  |
         cd ${HOME}
         rm -rf ${HOME}/git-templates
-        mkdir ${HOME}/git-templates
+        mkdir -p ${HOME}/git-templates
         echo "garbage" > ${HOME}/git-templates/garbage.txt
         rm -rf ${HOME}/workspace/git-init
-        mkdir ${HOME}/workspace/git-init
+        mkdir -p ${HOME}/workspace/git-init
         cd ${HOME}/workspace/git-init
         git init --template=${HOME}/git-templates
         ls -laR .git
