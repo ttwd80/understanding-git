@@ -17,19 +17,26 @@ jobs:
       run:  git help -a | grep "^   [a-z]" | awk '{print $1}' | sort
     - name: Compare git commands with git-commands.txt
       run:  diff <(git help -a | grep "^   [a-z]" | awk '{print $1}' | sort) git-commands.txt
-    - name: command 1 - git init help
+    - name: git init help
       run:  |
         git init --help | grep -o -- "--[a-z-]*" | sort | uniq
         diff <(git init --help | grep -o -- "--[a-z-]*" | sort | uniq) commands/git-init-options.txt
         git init --help
-    - name: command 1.1 - git init
+    - name: git init (normal usage)
       run:  |
         cd ~
         rm -rf ~/workspace
         mkdir ~/workspace
         cd ~/workspace
-        git init .
+        git init
         ls -Rla
+        git status
+        git log
+        echo "content" > file-1.txt
+        git add file-1.txt
+        git commit -m "added file-1.txt"
+        git status
+        git log
     - name: command 1.2 - git --separate-git-dir
       run:  |
         cd ~
