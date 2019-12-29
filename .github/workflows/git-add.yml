@@ -1,0 +1,16 @@
+name: git-add
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: git add help
+      run:  |
+        git add --help | grep -o -- "--[a-z-]*" | sort | uniq
+        diff <(git add --help | grep -o -- "--[a-z-]*" | sort | uniq) commands/git-add-options.txt
+        git add --help
