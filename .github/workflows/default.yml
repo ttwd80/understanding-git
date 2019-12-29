@@ -31,6 +31,7 @@ jobs:
         git init
         ls -la
         git status
+        git log
     - name: command 1.2 - git --separate-git-dir
       run:  |
         cd ~
