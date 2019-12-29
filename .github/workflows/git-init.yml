@@ -125,7 +125,7 @@ jobs:
         rm -rf ~/workspace-git-init
         mkdir ~/workspace-git-init
         cd ~/workspace-git-init
-        git init --template=~/git-templates
+        git init --template=${HOME}/git-templates
         ls -laR .git
     - name: git init --template
       run:  |
@@ -136,5 +136,5 @@ jobs:
         rm -rf ~/workspace-git-init
         mkdir ~/workspace-git-init
         cd ~/workspace-git-init
-        git init --template=~/git-templates
+        git init --template=${HOME}/git-templates
         ls -laR .git
