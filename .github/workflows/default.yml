@@ -31,6 +31,12 @@ jobs:
         git init
         ls -la
         git status
+        echo "content" > file-1.txt
+        git add file-1.txt
+        echo "added"
+        git status
+        git commit -m "added file-1.txt"
+        git status
         git log
     - name: command 1.2 - git --separate-git-dir
       run:  |
