@@ -116,14 +116,25 @@ jobs:
         umask 007
         git init --shared=0707
         ls -ld .git
-    - name: git init --template
+    - name: git init --template (invalid)
       run:  |
         cd ~
-        rm -rf ~/git-template
-        mkdir ~/git-template
-        echo "garbage" > ~/git-template/garbage.txt
+        rm -rf ~/git-templates
+        mkdir ~/git-templates
+        echo "garbage" > ~/git-templates/garbage.txt
         rm -rf ~/workspace-git-init
         mkdir ~/workspace-git-init
         cd ~/workspace-git-init
-        git init --template=~/git-template
+        git init --template=~/git-templates
+        ls -laR .git
+    - name: git init --template
+      run:  |
+        cd ~
+        rm -rf ~/git-templates
+        cp -R /usr/share/git-core/templates ~/git-templates/
+        echo "garbage" > ~/git-templates/garbage.txt
+        rm -rf ~/workspace-git-init
+        mkdir ~/workspace-git-init
+        cd ~/workspace-git-init
+        git init --template=~/git-templates
         ls -laR .git
