@@ -96,3 +96,11 @@ jobs:
         cd ~/workspace
         git init --shared=true
         ls -ld .git
+    - name: git init --shared - all
+      run:  |
+        cd ~
+        rm -rf ~/workspace
+        mkdir ~/workspace
+        cd ~/workspace
+        git init --shared=all
+        ls -ld .git
