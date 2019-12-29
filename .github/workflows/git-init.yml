@@ -114,5 +114,5 @@ jobs:
         mkdir ~/workspace-git-init
         cd ~/workspace-git-init
         umask 007
-        git init --shared=070
+        git init --shared=0707
         ls -ld .git
