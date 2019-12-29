@@ -97,6 +97,7 @@ jobs:
         rm -rf ~/workspace
         mkdir ~/workspace
         cd ~/workspace
+        umask
         git init --shared=true
         ls -ld .git
     - name: git init --shared - all
@@ -105,5 +106,6 @@ jobs:
         rm -rf ~/workspace
         mkdir ~/workspace
         cd ~/workspace
+        umask
         git init --shared=all
         ls -ld .git
