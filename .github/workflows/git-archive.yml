@@ -1,0 +1,18 @@
+name: git-archive
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: git archive help
+      run:  |
+        GIT_COMMAND=archive
+        source bin/functions.sh
+        list-options-for-git-command ${GIT_COMMAND}
+        diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
+        git ${GIT_COMMAND} --help
