@@ -1,4 +1,5 @@
 --3way
+--[no-]keep-cr
 --abort
 --committer-date-is-author-date
 --continue
@@ -14,14 +15,15 @@
 --keep-non-patch
 --message-id
 --no-3way
---[no-]keep-cr
 --no-message-id
+--no-rerere-autoupdate
 --no-scissors
 --no-utf8
 --patch-format
 --quiet
 --quit
 --reject
+--rerere-autoupdate
 --resolved
 --resolvemsg=<msg>
 --scissors
