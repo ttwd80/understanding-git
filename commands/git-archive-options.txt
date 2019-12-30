@@ -1,8 +1,8 @@
---exec=<git-upload-archive>
---format=<fmt>
+--exec
+--format
 --list
---output=<file>
---prefix=<prefix>/
---remote=<repo>
+--output
+--prefix
+--remote
 --verbose
 --worktree-attributes
