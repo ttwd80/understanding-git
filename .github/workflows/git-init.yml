@@ -11,10 +11,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: git init help
       run:  |
+        GIT_COMMAND=init
         source bin/functions.sh
-        list-options-for-git-command init
-        diff <(list-options-for-git-command init) commands/git-init-options.txt
-        git init --help
+        list-options-for-git-command ${GIT_COMMAND}
+        diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
+        git ${GIT_COMMAND} --help
     - name: git init (normal usage)
       run:  |
         cd ${HOME}
