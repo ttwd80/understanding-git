@@ -11,7 +11,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: git am help
       run:  |
+        GIT_COMMAND=am
         source bin/functions.sh
-        list-options-for-git-command am
-        diff <(list-options-for-git-command am) commands/git-am-options.txt
-        git am --help
+        list-options-for-git-command ${GIT_COMMAND}
+        diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
+        git ${GIT_COMMAND} --help
