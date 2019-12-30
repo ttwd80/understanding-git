@@ -1,4 +1,4 @@
-name: git-am
+name: git-annotate
 
 on: [push]
 
@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: git am help
+    - name: git annotate help
       run:  |
         GIT_COMMAND=annotate
         source bin/functions.sh
