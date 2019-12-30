@@ -102,6 +102,7 @@ jobs:
         git push origin
         git status
         ls -l show-date.sh
+        rm -rf ${HOME}/workspace-3
         mkdir -p ${HOME}/workspace-3
         cd ${HOME}/workspace-3
         git clone ${HOME}/workspace/git-add
@@ -129,6 +130,7 @@ jobs:
         git push origin
         git status
         ls -l show-date.sh
+        rm -rf ${HOME}/workspace-3
         mkdir -p ${HOME}/workspace-3
         cd ${HOME}/workspace-3
         git clone ${HOME}/workspace/git-add
