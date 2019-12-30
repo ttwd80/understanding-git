@@ -2,15 +2,15 @@
 --allow-binary-replacement
 --apply
 --binary
---build-fake-ancestor=<file>
+--build-fake-ancestor
 --cached
 --check
---directory=<root>
---exclude=<path-pattern>
+--directory
+--exclude
 --ignore-space-change
 --ignore-whitespace
 --inaccurate-eof
---include=<path-pattern>
+--include
 --index
 --intent-to-add
 --no-add
@@ -23,4 +23,4 @@
 --unidiff-zero
 --unsafe-paths
 --verbose
---whitespace=<action>
+--whitespace
