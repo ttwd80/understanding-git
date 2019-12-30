@@ -15,4 +15,4 @@ jobs:
         source bin/functions.sh
         list-options-for-git-command ${GIT_COMMAND}
         diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
-        git ${GIT_COMMAND} --help
+        git help ${GIT_COMMAND}
