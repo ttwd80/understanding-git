@@ -1,5 +1,5 @@
 --all
---chmod=(+|-)x
+--chmod
 --dry-run
 --edit
 --force
