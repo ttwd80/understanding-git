@@ -1,0 +1,16 @@
+name: git-am
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: git am help
+      run:  |
+        git am  --help | grep -- "^       -" | sed -e 's/^       //g' -e 's/, /\n/g' | grep -- "^--." | sort
+        diff <(git am  --help | grep -- "^       -" | sed -e 's/^       //g' -e 's/, /\n/g' | grep -- "^--." | sort ) commands/git-am-options.txt
+        git am --help
