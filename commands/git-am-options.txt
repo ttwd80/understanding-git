@@ -3,9 +3,9 @@
 --abort
 --committer-date-is-author-date
 --continue
---directory=<dir>
---exclude=<path>
---gpg-sign[=<keyid>]
+--directory
+--exclude
+--gpg-sign
 --ignore-date
 --ignore-space-change
 --ignore-whitespace
