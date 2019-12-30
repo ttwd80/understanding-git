@@ -8,5 +8,6 @@ list-options-for-git-command() {
     -e 's/,$//g' |\
     sed \
     -e 's/\[$//g' \
+    -e 's/\.$//g' \
     | grep -- "^--." | sort
 }
