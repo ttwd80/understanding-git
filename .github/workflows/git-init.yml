@@ -11,8 +11,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: git init help
       run:  |
-        git init --help | grep -o -- "--[a-z-]*" | sort | uniq
-        diff <(git init --help | grep -o -- "--[a-z-]*" | sort | uniq) commands/git-init-options.txt
+        git init --help | grep -- "^       -" | sed -e 's/^       //g' -e 's/, /\n/g'  -e 's/,$//g' | grep -- "^--." | sort
+        diff <(git init --help | grep -- "^       -" | sed -e 's/^       //g' -e 's/, /\n/g'  -e 's/,$//g' | grep -- "^--." | sort) commands/git-init-options.txt
         git init --help
     - name: git init (normal usage)
       run:  |
