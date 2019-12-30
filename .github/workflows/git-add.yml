@@ -26,6 +26,48 @@ jobs:
         git status
         git add file-a.txt
         git status
+    - name: git add --all vs git add .
+      run:  |
+        cd ${HOME}
+        rm -rf ${HOME}/workspace/git-add
+        mkdir -p ${HOME}/workspace/git-add
+        cd ${HOME}/workspace/git-add
+        git init
+        mkdir -p book1/chapter1
+        touch book1/chapter1/content
+        mkdir -p book1/chapter2
+        touch book1/chapter2/content
+        mkdir -p book1/chapter3
+        touch book1/chapter3/content
+        mkdir -p book2/chapter1
+        touch book2/chapter1/content
+        mkdir -p book2/chapter2
+        touch book2/chapter2/content
+        mkdir -p book2/chapter3
+        touch book2/chapter3/content
+        cd book2
+        git add .
+        git status
+        cd ${HOME}
+        rm -rf ${HOME}/workspace/git-add
+        mkdir -p ${HOME}/workspace/git-add
+        cd ${HOME}/workspace/git-add
+        git init
+        mkdir -p book1/chapter1
+        touch book1/chapter1/content
+        mkdir -p book1/chapter2
+        touch book1/chapter2/content
+        mkdir -p book1/chapter3
+        touch book1/chapter3/content
+        mkdir -p book2/chapter1
+        touch book2/chapter1/content
+        mkdir -p book2/chapter2
+        touch book2/chapter2/content
+        mkdir -p book2/chapter3
+        touch book2/chapter3/content
+        cd book2
+        git add --all
+        git status
     - name: git add --all
       run:  |
         cd ${HOME}
