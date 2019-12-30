@@ -13,6 +13,6 @@ jobs:
       run:  |
         GIT_COMMAND=bisect
         source bin/functions.sh
+        git ${GIT_COMMAND} --help
         list-options-for-git-command ${GIT_COMMAND}
         diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
-        git ${GIT_COMMAND} --help
