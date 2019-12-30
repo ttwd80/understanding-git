@@ -60,6 +60,7 @@ jobs:
         git push origin
         git status
         ls -l show-date.sh
+        mkdir -p ${HOME}/workspace-3
         cd ${HOME}/workspace-3
         git clone ${HOME}/workspace/git-add
         cd ${HOME}/workspace-3/git-add
