@@ -107,3 +107,30 @@ jobs:
         git clone ${HOME}/workspace/git-add
         cd ${HOME}/workspace-3/git-add
         ls -l show-date.sh
+    - name: git add --chmod=+x
+      run:  |
+        cd ${HOME}
+        rm -rf ${HOME}/workspace/git-add
+        mkdir -p ${HOME}/workspace/git-add
+        cd ${HOME}/workspace/git-add
+        git init --bare
+        rm -rf ${HOME}/workspace-2
+        mkdir -p ${HOME}/workspace-2
+        cd ${HOME}/workspace-2
+        git clone ${HOME}/workspace/git-add
+        cd ${HOME}/workspace-2/git-add
+        git config user.email "user1@gmail.com"
+        git config user.name "User 1"
+        echo '#!/bin/sh' > show-date.sh
+        echo 'date' >> show-date.sh
+        chmod -x show-date.sh
+        git add --chmod=+x show-date.sh
+        git commit -m "commit -x"
+        git push origin
+        git status
+        ls -l show-date.sh
+        mkdir -p ${HOME}/workspace-3
+        cd ${HOME}/workspace-3
+        git clone ${HOME}/workspace/git-add
+        cd ${HOME}/workspace-3/git-add
+        ls -l show-date.sh
