@@ -1,5 +1,5 @@
 --bare
 --quiet
---separate-git-dir
---shared
---template
+--separate-git-dir=<git dir>
+--shared[=(false|true|umask|group|all|world|everybody|0xxx)]
+--template=<template_directory>
