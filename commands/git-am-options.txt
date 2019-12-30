@@ -9,7 +9,7 @@
 --ignore-date
 --ignore-space-change
 --ignore-whitespace
---include=<path>
+--include
 --interactive
 --keep
 --keep-non-patch
@@ -25,10 +25,10 @@
 --reject
 --rerere-autoupdate
 --resolved
---resolvemsg=<msg>
+--resolvemsg
 --scissors
 --show-current-patch
 --signoff
 --skip
 --utf8
---whitespace=<option>
+--whitespace
