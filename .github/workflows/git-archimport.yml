@@ -11,4 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: git archimport help
       run:  |
+        GIT_COMMAND=archimport
         git help ${GIT_COMMAND} || echo "archimport?"
