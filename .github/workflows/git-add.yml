@@ -11,10 +11,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: git add help
       run:  |
+        GIT_COMMAND=add
         source bin/functions.sh
-        list-options-for-git-command add
-        diff <(list-options-for-git-command add) commands/git-add-options.txt
-        git add --help
+        list-options-for-git-command ${GIT_COMMAND}
+        diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
+        git ${GIT_COMMAND} --help
     - name: git add (basic)
       run:  |
         cd ${HOME}
