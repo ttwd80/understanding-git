@@ -5,6 +5,6 @@ list-options-for-git-command() {
     -e 's/=/\n/g'  \
     -e 's/ /\n/g'  \
     -e 's/,$//g' \
-    -e 's/[$//g' \
+    -e 's/\[$//g' \
     | grep -- "^--." | sort
 }
