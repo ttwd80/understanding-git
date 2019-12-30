@@ -1,10 +1,12 @@
 list-options-for-git-command() {
-  git $1 --help | grep -- "^       -" | sed \
+  git $1 --help | grep -- "^       -" |\
+    sed \
     -e 's/^       //g' \
-    -e 's/, /\n/g'  \
-    -e 's/=/\n/g'  \
-    -e 's/ /\n/g'  \
-    -e 's/,$//g' \
+    -e 's/, /\n/g' \
+    -e 's/=/\n/g' \
+    -e 's/ /\n/g' \
+    -e 's/,$//g' |\
+    sed \
     -e 's/\[$//g' \
     | grep -- "^--." | sort
 }
