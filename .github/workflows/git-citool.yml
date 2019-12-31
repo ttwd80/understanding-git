@@ -1,4 +1,4 @@
-name: git-init
+name: git-citool
 
 on: [push]
 
@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: git init help
+    - name: git citool help
       run:  |
-        GIT_COMMAND=init
+        GIT_COMMAND=citool
         source bin/functions.sh
         list-options-for-git-command ${GIT_COMMAND}
         diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt

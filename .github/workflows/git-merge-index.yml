@@ -1,4 +1,4 @@
-name: git-init
+name: git-merge-index
 
 on: [push]
 
@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: git init help
+    - name: git merge-index help
       run:  |
-        GIT_COMMAND=init
+        GIT_COMMAND=merge-index
         source bin/functions.sh
         list-options-for-git-command ${GIT_COMMAND}
         diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt

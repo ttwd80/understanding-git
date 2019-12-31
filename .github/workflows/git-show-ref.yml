@@ -1,4 +1,4 @@
-name: git-init
+name: git-show-ref
 
 on: [push]
 
@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: git init help
+    - name: git show-ref help
       run:  |
-        GIT_COMMAND=init
+        GIT_COMMAND=show-ref
         source bin/functions.sh
         list-options-for-git-command ${GIT_COMMAND}
         diff <(list-options-for-git-command ${GIT_COMMAND}) commands/git-${GIT_COMMAND}-options.txt
