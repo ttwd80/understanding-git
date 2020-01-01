@@ -1,0 +1,15 @@
+--abort
+--cleanup
+--continue
+--edit
+--gpg-sign
+--mainline
+--no-commit
+--no-edit
+--no-rerere-autoupdate
+--quit
+--rerere-autoupdate
+--signoff
+--skip
+--strategy
+--strategy-option
