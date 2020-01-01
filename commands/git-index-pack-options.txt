@@ -1,0 +1,9 @@
+--check-self-contained-and-connected
+--fix-thin
+--fsck-objects
+--index-version
+--keep
+--max-input-size
+--stdin
+--strict
+--threads
