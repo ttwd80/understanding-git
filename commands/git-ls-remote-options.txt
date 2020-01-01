@@ -1,0 +1,10 @@
+--exit-code
+--get-url
+--heads
+--quiet
+--refs
+--server-option
+--sort
+--symref
+--tags
+--upload-pack
