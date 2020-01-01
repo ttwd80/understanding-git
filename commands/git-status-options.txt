@@ -1,0 +1,16 @@
+--ahead-behind
+--branch
+--column
+--find-renames
+--ignore-submodules
+--ignored
+--long
+--no-ahead-behind
+--no-column
+--no-renames
+--porcelain
+--renames
+--short
+--show-stash
+--untracked-files
+--verbose
