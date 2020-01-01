@@ -1,0 +1,15 @@
+--anonymize
+--export-marks
+--fake-missing-tagger
+--full-tree
+--import-marks
+--mark-tags
+--no-data
+--progress
+--reencode
+--reference-excluded-parents
+--refspec
+--show-original-ids
+--signed-tags
+--tag-of-filtered-object
+--use-done-feature
