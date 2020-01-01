@@ -9,5 +9,5 @@ list-options-for-git-command() {
     sed \
     -e 's/\[$//g' \
     -e 's/\.$//g' \
-    | grep -- "^--." | sort
+    | grep -- "^--." | sort | uniq
 }
