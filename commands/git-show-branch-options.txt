@@ -1,0 +1,16 @@
+--all
+--color
+--current
+--date-order
+--independent
+--list
+--merge-base
+--more
+--no-color
+--no-name
+--reflog
+--remotes
+--sha1-name
+--sparse
+--topics
+--topo-order
