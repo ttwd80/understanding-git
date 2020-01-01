@@ -1,0 +1,5 @@
+--literally
+--no-filters
+--path
+--stdin
+--stdin-paths
