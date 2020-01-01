@@ -1,0 +1,15 @@
+--conflict
+--ignore-skip-worktree-bits
+--ignore-unmerged
+--merge
+--no-overlay
+--no-progress
+--ours
+--overlay
+--patch
+--progress
+--quiet
+--source
+--staged
+--theirs
+--worktree
