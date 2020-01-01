@@ -1,0 +1,13 @@
+--[no-]dangling
+--[no-]progress
+--cache
+--connectivity-only
+--full
+--lost-found
+--name-objects
+--no-reflogs
+--root
+--strict
+--tags
+--unreachable
+--verbose
