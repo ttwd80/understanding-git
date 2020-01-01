@@ -1,0 +1,14 @@
+--abbrev
+--all
+--always
+--broken
+--candidates
+--contains
+--debug
+--dirty
+--exact-match
+--exclude
+--first-parent
+--long
+--match
+--tags
