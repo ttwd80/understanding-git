@@ -1,0 +1,17 @@
+--[no-]progress
+--abbrev
+--contents
+--date
+--encoding
+--ignore-rev
+--ignore-revs-file
+--incremental
+--line-porcelain
+--porcelain
+--reverse
+--root
+--score-debug
+--show-email
+--show-name
+--show-number
+--show-stats
