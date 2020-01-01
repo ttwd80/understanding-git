@@ -1,0 +1,16 @@
+--[no-]relative-marks
+--active-branches
+--aggressive
+--big-file-threshold
+--cat-blob-fd
+--date-format
+--depth
+--done
+--export-marks
+--export-pack-edges
+--force
+--import-marks
+--import-marks-if-exists
+--max-pack-size
+--quiet
+--stats
