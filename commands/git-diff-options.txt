@@ -46,7 +46,7 @@
 --no-ext-diff
 --no-indent-heuristic
 --no-patch
--no-prefix
+--no-prefix
 --no-renames
 --no-textconv
 --numstat
