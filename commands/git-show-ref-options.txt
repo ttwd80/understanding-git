@@ -1,0 +1,9 @@
+--abbrev
+--dereference
+--exclude-existing
+--hash
+--head
+--heads
+--quiet
+--tags
+--verify
