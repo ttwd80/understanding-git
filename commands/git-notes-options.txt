@@ -1,0 +1,15 @@
+--abort
+--allow-empty
+--commit
+--dry-run
+--file
+--force
+--ignore-missing
+--message
+--quiet
+--reedit-message
+--ref
+--reuse-message
+--stdin
+--strategy
+--verbose
