@@ -1,0 +1,2 @@
+--max-input-size
+--strict
