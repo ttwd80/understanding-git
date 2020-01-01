@@ -1,0 +1,9 @@
+--[no-]gui
+--[no-]symlinks
+--[no-]trust-exit-code
+--dir-diff
+--extcmd
+--no-prompt
+--prompt
+--tool
+--tool-help
