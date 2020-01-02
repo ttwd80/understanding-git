@@ -1,0 +1,12 @@
+--[no-]signed
+--all
+--atomic
+--dry-run
+--exec
+--force
+--push-option
+--receive-pack
+--signed
+--stdin
+--thin
+--verbose
