@@ -1,0 +1,13 @@
+--commit-filter
+--env-filter
+--force
+--index-filter
+--msg-filter
+--original
+--parent-filter
+--prune-empty
+--setup
+--state-branch
+--subdirectory-filter
+--tag-name-filter
+--tree-filter
