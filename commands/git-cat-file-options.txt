@@ -1,0 +1,10 @@
+--allow-unknown-type
+--batch
+--batch-all-objects
+--batch-check
+--buffer
+--filters
+--follow-symlinks
+--path
+--textconv
+--unordered
