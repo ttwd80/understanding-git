@@ -1,0 +1,11 @@
+--[no-]recurse-submodules
+--aggressive
+--dry-run
+--empty
+--exclude-per-directory
+--index-output
+--no-sparse-checkout
+--prefix
+--quiet
+--reset
+--trivial
