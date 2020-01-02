@@ -1,0 +1,14 @@
+--all
+--check-self-contained-and-connected
+--deepen-relative
+--depth
+--exec
+--include-tag
+--keep
+--no-progress
+--quiet
+--shallow-exclude
+--shallow-since
+--stdin
+--thin
+--upload-pack
