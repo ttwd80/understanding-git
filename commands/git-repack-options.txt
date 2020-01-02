@@ -1,0 +1,11 @@
+--delta-islands
+--depth
+--keep-pack
+--keep-unreachable
+--max-pack-size
+--pack-kept-objects
+--threads
+--unpack-unreachable
+--window
+--window-memory
+--write-bitmap-index
