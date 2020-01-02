@@ -25,3 +25,11 @@
 --set-upstream
 --shallow-exclude
 --shallow-since
+--show-forced-updates
+--submodule-prefix
+--tags
+--unshallow
+--update-head-ok
+--update-shallow
+--upload-pack
+--verbose
