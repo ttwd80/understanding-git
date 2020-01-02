@@ -1,0 +1,5 @@
+--cached
+--dry-run
+--force
+--ignore-unmatch
+--quiet
