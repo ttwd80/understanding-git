@@ -1,0 +1,12 @@
+--[no-]checkout
+--[no-]guess-remote
+--[no-]track
+--detach
+--dry-run
+--expire
+--force
+--lock
+--porcelain
+--quiet
+--reason
+--verbose
