@@ -1,4 +1,6 @@
 dist: bionic
 script:
   - git --version
+  - id
+  - pwd
   - sh general/git-version-check.sh
