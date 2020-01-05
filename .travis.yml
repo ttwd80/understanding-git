@@ -3,4 +3,5 @@ script:
   - git --version
   - id
   - pwd
-  - sh general/git-version-check.sh
+  - echo
+  - sh ${HOME}/build/ttwd80/understanding-git/general/git-version-check.sh
