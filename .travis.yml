@@ -2,13 +2,5 @@ dist: bionic
 script:
   - git --version
   - id
-  - pwd
-  - echo
-  - echo ${HOME}
-  - ls -ld ${HOME}
-  - ls -ld ${HOME}/build
-  - ls -ld ${HOME}/build/ttwd80
-  - ls -ld ${HOME}/build/ttwd80/understanding-git
-  - ls -ld ${HOME}/build/ttwd80/understanding-git/general
-  - ls -ld ${HOME}/build/ttwd80/understanding-git/general/git-version-check.sh
   - sh ${HOME}/build/ttwd80/understanding-git/general/git-version-check.sh
+  - sh ${HOME}/build/ttwd80/understanding-git/general/git-command-check.sh
