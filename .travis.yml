@@ -3,4 +3,4 @@ script:
   - git --version
   - id
   - sh ${HOME}/build/ttwd80/understanding-git/general/git-version-check.sh
-  - sh ${HOME}/build/ttwd80/understanding-git/general/git-command-check.sh
+  - sh ${HOME}/build/ttwd80/understanding-git/general/git-command-count-check.sh
