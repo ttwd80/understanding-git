@@ -1,4 +1,0 @@
---curl
---no-curl
---quiet
---verbose

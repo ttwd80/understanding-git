@@ -1,5 +1,0 @@
---committer
---email
---format
---numbered
---summary

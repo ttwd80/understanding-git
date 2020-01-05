@@ -1,8 +1,0 @@
---all
---config
---guides
---help
---info
---man
---verbose
---web

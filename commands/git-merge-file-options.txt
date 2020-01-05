@@ -1,5 +1,0 @@
---diff3
---marker-size
---ours
---theirs
---union

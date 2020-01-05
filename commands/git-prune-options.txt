@@ -1,4 +1,0 @@
---dry-run
---expire
---progress
---verbose

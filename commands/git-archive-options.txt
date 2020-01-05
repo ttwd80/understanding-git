@@ -1,8 +1,0 @@
---exec
---format
---list
---output
---prefix
---remote
---verbose
---worktree-attributes

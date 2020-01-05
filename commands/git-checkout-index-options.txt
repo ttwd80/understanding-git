@@ -1,9 +1,0 @@
---all
---force
---index
---no-create
---prefix
---quiet
---stage
---stdin
---temp

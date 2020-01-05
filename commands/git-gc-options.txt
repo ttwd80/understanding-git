@@ -1,7 +1,0 @@
---aggressive
---auto
---force
---keep-largest-pack
---no-prune
---prune
---quiet

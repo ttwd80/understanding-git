@@ -1,5 +1,0 @@
---author
---dry-run
---keep-non-patch
---patches
---series

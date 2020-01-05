@@ -1,8 +1,0 @@
---all
---always
---exclude
---name-only
---no-undefined
---refs
---stdin
---tags

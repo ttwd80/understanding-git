@@ -1,6 +1,0 @@
---gui
---no-gui
---no-prompt
---prompt
---tool
---tool-help

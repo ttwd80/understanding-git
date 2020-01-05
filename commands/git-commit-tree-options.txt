@@ -1,2 +1,0 @@
---gpg-sign
---no-gpg-sign

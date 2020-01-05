@@ -1,6 +1,0 @@
---abbrev
---full-name
---full-tree
---long
---name-only
---name-status
