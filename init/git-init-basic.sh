@@ -4,7 +4,7 @@ mkdir -p ${HOME}/work
 cd ${HOME}/work
 
 #git status before git init
-if test git status
+if git status
 then
   echo "git status - ok"
 else
@@ -21,7 +21,7 @@ fi
 echo "Running git init"
 git init
 
-if test git status
+if git status
 then
   echo "git status - ok"
 else
