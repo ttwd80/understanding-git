@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 rm -rf ${HOME}/work
 mkdir -p ${HOME}/work
 cd ${HOME}/work

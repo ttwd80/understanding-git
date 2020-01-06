@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 rm -rf ${HOME}/template
 mkdir -p ${HOME}/template
 echo "random content" | tee ${HOME}/template/content.txt
