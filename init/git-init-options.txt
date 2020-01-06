@@ -1,0 +1,4 @@
+--bare
+--quiet
+--separate-git-dir
+--template
