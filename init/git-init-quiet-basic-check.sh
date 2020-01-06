@@ -18,7 +18,7 @@ else
   echo ".git directory does not exist"
 fi
 
-echo "Running git init"
+echo "Running git init --quiet"
 git init --quiet
 
 if git status
