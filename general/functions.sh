@@ -1,6 +1,6 @@
 extract_options() {
   curl --silent "$1" |\
-    grep -E "OPT_STRING\(|OPT_BIT\(|OPT_SET_INT\(" |\
+    grep -E "OPT_STRING\(|OPT_BIT\(|OPT_SET_INT\(|OPTION_CALLBACK\(" |\
     awk '{ print $2 }' |\
     sed -e 's/^"//' -e 's/\",//' |\
     sort |\
