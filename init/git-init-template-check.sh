@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -rf ${HOME}/template
 mkdir -p ${HOME}/template
-echo "random content" > ${HOME}/template/content.txt
+echo "random content" | tee ${HOME}/template/content.txt
 
 rm -rf ${HOME}/work
 mkdir -p ${HOME}/work
@@ -40,4 +40,5 @@ else
   echo ".git directory does not exist"
 fi
 
-ls -l .git
+ls -l .git/content.txt
+cat .git/content.txt
