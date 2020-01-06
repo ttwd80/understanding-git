@@ -8,3 +8,4 @@ script:
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-basic-check.sh
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-bare-basic-check.sh
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-quiet-basic-check.sh
+  - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-separate-git-dir-basic-check.sh
