@@ -1,0 +1,16 @@
+--all
+--chmod
+--dry-run
+--edit
+--force
+--ignore-errors
+--ignore-missing
+--intent-to-add
+--interactive
+--no-all
+--no-warn-embedded-repo
+--patch
+--refresh
+--renormalize
+--update
+--verbose
