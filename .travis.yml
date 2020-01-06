@@ -1,6 +1,5 @@
 dist: bionic
 script:
-  - git --version
   - id
   - bash ${HOME}/build/ttwd80/understanding-git/general/git-version-check.sh
   - bash ${HOME}/build/ttwd80/understanding-git/general/git-command-count-check.sh
@@ -10,3 +9,4 @@ script:
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-quiet-basic-check.sh
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-separate-git-dir-basic-check.sh
   - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-template-check.sh
+  - bash ${HOME}/build/ttwd80/understanding-git/init/git-init-shared-check.sh
