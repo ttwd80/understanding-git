@@ -25,8 +25,8 @@ pipenv run python \
     1 \
     "Main Porcelain Commands" > markdown/section-1/index.md
 
-# Section 1
-# Main Porcelain Commands
+# Section 2
+# Ancillary Commands / Manipulators
 echo "Processing section-2/index.md..."
 mkdir -p markdown/section-2
 pipenv run python \
@@ -35,5 +35,16 @@ pipenv run python \
     TEMPLATE_HELP_CONTENT \
     2 \
     "Ancillary Commands / Manipulators" > markdown/section-2/index.md
+
+# Section 3
+# Ancillary Commands / Manipulators
+echo "Processing section-3/index.md..."
+mkdir -p markdown/section-3
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    3 \
+    "Ancillary Commands / Interrogators" > markdown/section-3/index.md
 
 echo "Done."
