@@ -31,3 +31,19 @@ $ ls -a
 $ 
 ```
 I can get this with `pexpect` but not `github.com/Netflix/go-expect`.
+
+Decision to use `/bin/sh`
+===
+I want the runs to produce the same output for the same git version. Using `/bin/bash`, I would get this:
+```
+root@58a765450cdc:/# 
+```
+and 
+```
+root@448082c91936:/#
+```
+The Bourne shell, `/bin/sh` consistently gives me:
+```
+# 
+```
+
