@@ -1,7 +1,11 @@
 # understanding-git
 
 Decisions
-- Decision to use git that is in the python Docker image 
+===
+
+Decision to use git that is in the python Docker image 
+===
+
 From the list of [all official packages in docker hub](https://hub.docker.com/search?q=&type=image&image_filter=official) only 3 came with git pre-installed.
   - node - `git version 2.11.0`
   - golang - `git version 2.20.1`
@@ -18,7 +22,8 @@ Between these 2 versions of git, `2.20.1` had the advantage of dividing the git 
   - Low-level Commands / Synching Repositories
   - Low-level Commands / Internal Helpers
 
-- Decision to use `pexpect`
+Decision to use `pexpect`
+===
 I took a look at `pexpect` and Netflix's `github.com/Netflix/go-expect`. I wanted a tool that would display the raw prompt as well as any input and output. Something like this:
 ```
 $ ls -a
