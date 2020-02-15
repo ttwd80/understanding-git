@@ -2,7 +2,6 @@ from jinja2 import Environment, FileSystemLoader
 import sys
 import os
 import collections
-import re
 
 source = sys.argv[1]
 name = sys.argv[2]
@@ -14,7 +13,6 @@ lines = os.environ[name].replace("\r", "").split("\n")
 d = collections.OrderedDict()
 interested = False
 for line in lines:
-    # print("{0}:{1}".format(len(line), line))
     if interested:
         if len(line) == 0:
             break
