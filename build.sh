@@ -14,5 +14,14 @@ pipenv run python \
     intro.md.jinja \
     TEMPLATE_MULTIPLE_SECTIONS,TEMPLATE_SINGLE_VERSION > markdown/intro.md
 
-echo "Done."
+# Section 1
+# Main Porcelain Commands
+echo "Processing section-1/index.md..."
+mkdir -p markdown/section-1
+pipenv run python \
+    ./python/generate-commands.py \
+    section-1/index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    "Main Porcelain Commands" > markdown/section-1/index.md
 
+echo "Done."

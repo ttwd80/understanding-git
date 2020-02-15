@@ -6,5 +6,5 @@ This is another attempt to understand how git works.
 As of `{{ version }}`, the git documentation page has {{ sections | length }} sections:
 
 {%- for item in sections %}
-{{ loop.index}}. [{{ item }}](./section-{{ loop.index }}/index.md)
+{{ loop.index }}. [{{ item }}](./section-{{ loop.index }}/index.md)
 {%- endfor %}
