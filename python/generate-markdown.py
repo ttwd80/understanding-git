@@ -9,12 +9,11 @@ env = Environment(loader=FileSystemLoader("./template"))
 data = {}
 for name in names:
     if name.startswith("TEMPLATE_MULTIPLE_"):
-        data[name.replace("TEMPLATE_MULTIPLE_", "").lower()] = os.environ[name].split("\n")
+        data[name.replace("TEMPLATE_MULTIPLE_", "").lower()] = os.environ[name].replace("\r", "").split("\n")
     elif name.startswith("TEMPLATE_SINGLE_"):
-        data[name.replace("TEMPLATE_SINGLE_", "").lower()] = os.environ[name]
+        data[name.replace("TEMPLATE_SINGLE_", "").lower()] = os.environ[name].replace("\r", "")
     else:
         print("Unknown value - {0}".format(name))
-    
-print(data)
+
 template = env.get_template(source)
 print(template.render(data))
