@@ -22,5 +22,5 @@ for line in content_array:
             child.sendline(line[1:])
         else:
             print("Unknown command: {0}".format(c))
-
+child.sendline("exit")
 child.expect(pexpect.EOF)
