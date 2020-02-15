@@ -3,6 +3,8 @@ Section 1: Main Porcelain Commands
 
 There are {{ items | length }} commands in this section. 
 
+| No | Command | Description |
+| -- | ------- | ----------- |
 {% for item in items -%}
 | {{ loop.index }} | [{{ item }}](./{{ item }}.md) | {{ items[item] }} |
 {% endfor %}

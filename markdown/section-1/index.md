@@ -3,6 +3,8 @@ Section 1: Main Porcelain Commands
 
 There are 39 commands in this section. 
 
+| No | Command | Description |
+| -- | ------- | ----------- |
 | 1 | [add](./add.md) | Add file contents to the index |
 | 2 | [am](./am.md) | Apply a series of patches from a mailbox |
 | 3 | [archive](./archive.md) | Create an archive of files from a named tree |
