@@ -47,4 +47,15 @@ pipenv run python \
     3 \
     "Ancillary Commands / Interrogators" > markdown/section-3/index.md
 
+# Section 4
+# Ancillary Commands / Manipulators
+echo "Processing section-4/index.md..."
+mkdir -p markdown/section-4
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    4 \
+    "Interacting with Others" > markdown/section-4/index.md
+
 echo "Done."
