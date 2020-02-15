@@ -6,9 +6,10 @@ with open(sys.argv[1]) as f:
     for line in f:
         content_array.append(line)
 
-
-child = pexpect.spawn("docker run --rm -it {0} {1}".format(sys.argv[2], sys.argv[3]), encoding='utf-8')
-child.logfile_read=sys.stdout
+child = pexpect.spawn("docker run --rm -it {0} {1}".format(
+    sys.argv[2], sys.argv[3]),
+                      encoding='utf-8')
+child.logfile_read = sys.stdout
 child.setecho(False)
 
 for line in content_array:
@@ -17,7 +18,7 @@ for line in content_array:
         c = line[0]
         if (c == '<'):
             child.expect(line[1:])
-        elif(c == '>'):
+        elif (c == '>'):
             child.sendline(line[1:])
         else:
             print("Unknown command: {0}".format(c))
