@@ -48,7 +48,7 @@ pipenv run python \
     "Ancillary Commands / Interrogators" > markdown/section-3/index.md
 
 # Section 4
-# Ancillary Commands / Manipulators
+# Interacting with Others
 echo "Processing section-4/index.md..."
 mkdir -p markdown/section-4
 pipenv run python \
@@ -57,5 +57,16 @@ pipenv run python \
     TEMPLATE_HELP_CONTENT \
     4 \
     "Interacting with Others" > markdown/section-4/index.md
+
+# Section 5
+# Low-level Commands / Manipulators
+echo "Processing section-5/index.md..."
+mkdir -p markdown/section-5
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    5 \
+    "Low-level Commands / Manipulators" > markdown/section-5/index.md
 
 echo "Done."
