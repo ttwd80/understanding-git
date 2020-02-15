@@ -69,4 +69,15 @@ pipenv run python \
     5 \
     "Low-level Commands / Manipulators" > markdown/section-5/index.md
 
+# Section 6
+# Low-level Commands / Interrogators
+echo "Processing section-6/index.md..."
+mkdir -p markdown/section-6
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    6 \
+    "Low-level Commands / Interrogators" > markdown/section-6/index.md
+
 echo "Done."
