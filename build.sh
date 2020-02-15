@@ -19,7 +19,7 @@ pipenv run python \
 echo "Processing section-1/index.md..."
 mkdir -p markdown/section-1
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     1 \
@@ -30,7 +30,7 @@ pipenv run python \
 echo "Processing section-2/index.md..."
 mkdir -p markdown/section-2
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     2 \
@@ -41,7 +41,7 @@ pipenv run python \
 echo "Processing section-3/index.md..."
 mkdir -p markdown/section-3
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     3 \
@@ -52,7 +52,7 @@ pipenv run python \
 echo "Processing section-4/index.md..."
 mkdir -p markdown/section-4
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     4 \
@@ -63,7 +63,7 @@ pipenv run python \
 echo "Processing section-5/index.md..."
 mkdir -p markdown/section-5
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     5 \
@@ -74,7 +74,7 @@ pipenv run python \
 echo "Processing section-6/index.md..."
 mkdir -p markdown/section-6
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     6 \
@@ -85,7 +85,7 @@ pipenv run python \
 echo "Processing section-7/index.md..."
 mkdir -p markdown/section-7
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     7 \
@@ -96,7 +96,7 @@ pipenv run python \
 echo "Processing section-8/index.md..."
 mkdir -p markdown/section-8
 pipenv run python \
-    ./python/generate-commands.py \
+    ./python/generate-section.py \
     section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
     8 \
@@ -105,4 +105,6 @@ pipenv run python \
 # Section 1/8, Command 1/39
 # git init
 # docker run -it --rm python su - -c 'useradd -m git -s /bin/sh && su - git'
+export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c 'git init -help | grep -v ^usage:')"
+export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/add/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 echo "Done."
