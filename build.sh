@@ -80,4 +80,26 @@ pipenv run python \
     6 \
     "Low-level Commands / Interrogators" > markdown/section-6/index.md
 
+# Section 7
+# Low-level Commands / Synching Repositories
+echo "Processing section-7/index.md..."
+mkdir -p markdown/section-7
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    7 \
+    "Low-level Commands / Synching Repositories" > markdown/section-7/index.md
+
+# Section 8
+# Low-level Commands / Internal Helpers
+echo "Processing section-8/index.md..."
+mkdir -p markdown/section-8
+pipenv run python \
+    ./python/generate-commands.py \
+    section-index.md.jinja \
+    TEMPLATE_HELP_CONTENT \
+    8 \
+    "Low-level Commands / Internal Helpers" > markdown/section-8/index.md
+
 echo "Done."
