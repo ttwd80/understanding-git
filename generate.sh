@@ -3,7 +3,7 @@ echo Generating html content
 rm -rf html
 mkdir html
 
-export GIT_VERSION=$(python src/git-version.py | grep "^git" | awk '{print $3}' | tr -d '\n\r')
+export GIT_VERSION=$(python src/docker-execute.py src/git-version.txt node 'su - -s /bin/sh node' | grep "^git" | awk '{print $3}' | tr -d '\n\r')
 
 #TODO - to get the latest automatically by processing https://getbootstrap.com/
 export BOOTSTRAP_VERSION="4.4.1"
