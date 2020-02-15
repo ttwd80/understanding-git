@@ -1,0 +1,2 @@
+<# $
+>git help -a > /tmp/git-help && cat /tmp/git-help  | grep "^[A-Z]" | grep -vE "<|>"
