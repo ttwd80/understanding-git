@@ -6,7 +6,8 @@ import re
 
 source = sys.argv[1]
 name = sys.argv[2]
-title = sys.argv[3]
+number = int(sys.argv[3])
+title = sys.argv[4]
 
 env = Environment(loader=FileSystemLoader("./template"))
 lines = os.environ[name].replace("\r", "").split("\n")
@@ -25,5 +26,6 @@ for line in lines:
 
 data = {}
 data['items'] = d
+data['section'] = {'number': number, 'title': title}
 template = env.get_template(source)
 print(template.render(data))

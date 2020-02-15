@@ -20,8 +20,9 @@ echo "Processing section-1/index.md..."
 mkdir -p markdown/section-1
 pipenv run python \
     ./python/generate-commands.py \
-    section-1/index.md.jinja \
+    section-index.md.jinja \
     TEMPLATE_HELP_CONTENT \
+    1 \
     "Main Porcelain Commands" > markdown/section-1/index.md
 
 echo "Done."
