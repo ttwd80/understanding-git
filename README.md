@@ -47,3 +47,6 @@ The Bourne shell, `/bin/sh` consistently gives me:
 # 
 ```
 
+Decision not to use `virtualenv`
+===
+I want the packages in the `Python` environment to be isolated from what ever has been installed on the current machine. The [package](https://virtualenv.pypa.io/en/stable/) `virtualenv` solves this. However, I do not want to have to run `source bin/activate` to activate the environment. I created a directory under `~/.learning-git/python3-modules` that would store the modules and will mounted as `/usr/local/lib/python3.8/site-packages` when Python is executed in the Docker container.
