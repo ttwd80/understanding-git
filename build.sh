@@ -102,4 +102,7 @@ pipenv run python \
     8 \
     "Low-level Commands / Internal Helpers" > markdown/section-8/index.md
 
+# Section 1/8, Command 1/39
+# git init
+# docker run -it --rm python su - -c 'useradd -m git -s /bin/sh && su - git'
 echo "Done."
