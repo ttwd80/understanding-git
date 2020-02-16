@@ -102,9 +102,9 @@ pipenv run python \
     8 \
     "Low-level Commands / Internal Helpers" > markdown/section-8/index.md
 
-# Section 1/8, Command 1/39
+# Section 1/8, Command 21/39
 # git init
-# docker run -it --rm python su - -c 'useradd -m git -s /bin/sh && su - git'
+echo "Processing section-1/init.md 21/39..."
 export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c 'git init -help | grep -v ^usage:')"
 export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/add/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 pipenv run python \
