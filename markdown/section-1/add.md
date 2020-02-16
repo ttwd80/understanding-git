@@ -20,7 +20,7 @@ This commmand accepts 15 options:
 | 12 | --refresh | don't add, only refresh the index |
 | 13 | --ignore-errors | just skip files which cannot be added because of errors |
 | 14 | --ignore-missing | check if - even missing - files are ignored in dry run |
-| 15 | --chmod (+|-)x | override the executable bit of the listed files |
+| 15 | --chmod (+\|-)x | override the executable bit of the listed files |
 
 
 
