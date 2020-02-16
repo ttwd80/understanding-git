@@ -1,0 +1,33 @@
+<\$ $
+>mkdir project
+<\$ $
+>cd project
+<\$ $
+>git init
+<\$ $
+>ls .git
+<\$ $
+>git config core.editor
+<\$ $
+>cat .git/config
+<\$ $
+>rm -rf .git
+<\$ $
+>mkdir ${HOME}/sample
+<\$ $
+>echo cf8acad3b2 > ${HOME}/sample/random.txt
+<\$ $
+>echo '[core]' >> ${HOME}/sample/config
+<\$ $
+>echo 'editor = emacs' >> ${HOME}/sample/config
+<\$ $
+>git init . --template ${HOME}/sample
+<\$ $
+>ls .git
+<\$ $
+>git config core.editor
+<\$ $
+>cat .git/config
+<\$ $
+>git status
+<\$ $

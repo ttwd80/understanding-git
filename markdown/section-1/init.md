@@ -64,3 +64,48 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
+Example 2 : --template
+---
+```
+$ mkdir project
+$ cd project
+$ git init
+Initialized empty Git repository in /home/git/project/.git/
+$ ls .git
+HEAD  branches	config	description  hooks  info  objects  refs
+$ git config core.editor
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ${HOME}/sample
+$ echo cf8acad3b2 > ${HOME}/sample/random.txt
+$ echo '[core]' >> ${HOME}/sample/config
+$ echo 'editor = emacs' >> ${HOME}/sample/config
+$ git init . --template ${HOME}/sample
+Initialized empty Git repository in /home/git/project/.git/
+$ ls .git
+HEAD  config  objects  random.txt  refs
+$ git config core.editor
+emacs
+$ cat .git/config
+[core]
+editor = emacs
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ 
+```
+
+
+

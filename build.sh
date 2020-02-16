@@ -131,11 +131,12 @@ export GIT_COMMAND="init"
 echo "Processing section-1/${GIT_COMMAND}.md 21/39..."
 export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "git ${GIT_COMMAND} -help | grep -v ^usage:")"
 export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
+export TEMPLATE_GIT_EXAMPLE_2="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-2.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 pipenv run python \
     ./python/generate-command.py \
     ${GIT_COMMAND} \
     ./section-1/${GIT_COMMAND}.md.jinja \
-    1 > ./markdown/section-1/${GIT_COMMAND}.md
+    1,2 > ./markdown/section-1/${GIT_COMMAND}.md
 
 
 echo "Done."
