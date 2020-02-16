@@ -30,6 +30,7 @@ last_used_key = ""
 for line in lines:
     line = line.strip()
     if line:
+        line = line.replace("|", "\|")
         if line.startswith("-"):
             words = line.split(" ")
             key = ""
