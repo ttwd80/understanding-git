@@ -113,11 +113,22 @@ pipenv run python \
     ./section-1/${GIT_COMMAND}.md.jinja \
     "" > ./markdown/section-1/${GIT_COMMAND}.md
 
+# Section 1/8, Command 2/39
+# git am
+export GIT_COMMAND="am"
+echo "Processing section-1/${GIT_COMMAND}.md 2/39..."
+export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "mkdir /tmp/git && cd /tmp/git && git init -q . && git ${GIT_COMMAND} -help | grep -v ^usage: | grep -v '^   or:' ")"
+pipenv run python \
+    ./python/generate-command.py \
+    ${GIT_COMMAND} \
+    ./section-1/${GIT_COMMAND}.md.jinja \
+    "" > ./markdown/section-1/${GIT_COMMAND}.md
+
 
 # Section 1/8, Command 21/39
 # git init
-echo "Processing section-1/init.md 21/39..."
 export GIT_COMMAND="init"
+echo "Processing section-1/${GIT_COMMAND}.md 21/39..."
 export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "git ${GIT_COMMAND} -help | grep -v ^usage:")"
 export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 pipenv run python \
