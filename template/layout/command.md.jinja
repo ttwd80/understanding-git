@@ -1,0 +1,13 @@
+git {% block command %}{% endblock %}
+===
+
+This commmand accepts {{ items | length }} options:
+
+
+| No | Option | Description |
+| -- | ------- | ----------- |
+{% for item in items -%}
+| {{ loop.index }} | {{ item }} | {{ items[item] }} |
+{% endfor %}
+
+{% block content %}{% endblock %}

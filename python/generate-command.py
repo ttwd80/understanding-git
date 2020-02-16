@@ -4,8 +4,9 @@ import os
 import re
 import collections
 
-source = sys.argv[1]
-example_count = int(sys.argv[2])
+command = sys.argv[1]
+source = sys.argv[2]
+examples = str(sys.argv[3]).split(",")
 
 
 ansi_escape = re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
@@ -13,6 +14,8 @@ starts_with_lowercase = re.compile("^[a-z].*")
 
 env = Environment(loader=FileSystemLoader("./template"))
 data = {}
+
+data['command'] = command
 
 d = collections.OrderedDict()
 
@@ -47,11 +50,12 @@ data['items'] = d
 
 
 data['example'] = {}
-for i in range(1, example_count + 1):
-    os_key = "TEMPLATE_GIT_EXAMPLE_{0}".format(i)
-    lines = os.environ[os_key].replace("\r", "").split("\n")
-    lines = [strip_ansi(line) for line in lines]
-    data['example'][str(i)] = lines
+for example in examples:
+    os_key = "TEMPLATE_GIT_EXAMPLE_{0}".format(example)
+    if example:
+        lines = os.environ[os_key].replace("\r", "").split("\n")
+        lines = [strip_ansi(line) for line in lines]
+        data['example'][example] = lines
 
 template = env.get_template(source)
 print(template.render(data))

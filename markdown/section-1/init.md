@@ -13,6 +13,7 @@ This commmand accepts 5 options:
 | 5 | --separate-git-dir <gitdir> | separate git dir from working tree |
 
 
+
 What is it for?
 ---
 Using `git init` will allow you to manipulate the specified directory with `git`. 
@@ -62,5 +63,4 @@ Adding the file to git results in an error. Checking the git status also results
 The command `git init` makes it a git repository. Since we did not specify any directory or any options, it will process the current directory.
 
 We can then run `git status` and `git add` and it will behave as expected.
-
 

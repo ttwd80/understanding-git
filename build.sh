@@ -2,7 +2,7 @@
 
 echo "Setup Python"
 rm -rf markdown && mkdir markdown
-pipenv clean && pipenv run pip install -q pexpect==4.8.0 Jinja2==2.11.1
+pipenv clean && pipenv run pip install -q pexpect==4.8.0 Jinja2==2.11.1 autopep8==1.5
 
 #Intro
 echo "Processing intro.md..."
@@ -102,14 +102,29 @@ pipenv run python \
     8 \
     "Low-level Commands / Internal Helpers" > markdown/section-8/README.md
 
+# Section 1/8, Command 1/39
+# git add
+echo "Processing section-1/add.md 1/39..."
+export GIT_COMMAND="add"
+export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "mkdir /tmp/git && cd /tmp/git && git init -q . && git ${GIT_COMMAND} -help | grep -v ^usage:")"
+pipenv run python \
+    ./python/generate-command.py \
+    ${GIT_COMMAND} \
+    ./section-1/${GIT_COMMAND}.md.jinja \
+    "" > ./markdown/section-1/${GIT_COMMAND}.md
+
+
 # Section 1/8, Command 21/39
 # git init
 echo "Processing section-1/init.md 21/39..."
-export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c 'git init -help | grep -v ^usage:')"
-export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/add/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
+export GIT_COMMAND="init"
+export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "git ${GIT_COMMAND} -help | grep -v ^usage:")"
+export TEMPLATE_GIT_EXAMPLE_1="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-1.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 pipenv run python \
     ./python/generate-command.py \
-    ./section-1/init.md.jinja 1 > ./markdown/section-1/init.md
+    ${GIT_COMMAND} \
+    ./section-1/${GIT_COMMAND}.md.jinja \
+    1 > ./markdown/section-1/${GIT_COMMAND}.md
 
 
 echo "Done."

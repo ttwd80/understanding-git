@@ -1,15 +1,6 @@
-git init
-===
-
-This commmand accepts {{ items | length }} options:
-
-
-| No | Option | Description |
-| -- | ------- | ----------- |
-{% for item in items -%}
-| {{ loop.index }} | {{ item }} | {{ items[item] }} |
-{% endfor %}
-
+{% extends "layout/command.md.jinja" %}
+{% block command %}{{ command }}{% endblock %}
+{% block content %}
 What is it for?
 ---
 Using `git init` will allow you to manipulate the specified directory with `git`. 
@@ -30,5 +21,4 @@ Adding the file to git results in an error. Checking the git status also results
 The command `git init` makes it a git repository. Since we did not specify any directory or any options, it will process the current directory.
 
 We can then run `git status` and `git add` and it will behave as expected.
-
-
+{% endblock %}
