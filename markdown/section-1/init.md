@@ -54,3 +54,12 @@ Changes to be committed:
 
 $ 
 ```
+
+Here we first create a directory called `project1`. This will be our new git repository. We make `project1` the current directory by running the `cd` command. Next we create an empty file called `Makefile`. 
+
+Adding the file to git results in an error. Checking the git status also results in an error. The important bit is `not a git repository`. This tells us that you can run `add` and `status` only in a git repository.
+
+The command `git init` makes it a git repository. Since we did not specify any directory or any options, it will process the current directory.
+
+We can then run `git status` and `git add` and it will behave as expected.
+
