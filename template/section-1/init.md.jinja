@@ -1,11 +1,14 @@
 git init
 ===
 
-This commmand accepts {{ items | length }} :
+This commmand accepts {{ items | length }} options:
 
-{%- for item in items %}
-{{ loop.index }}. {{ item }}
-{%- endfor %}
+
+| No | Option | Description |
+| -- | ------- | ----------- |
+{% for item in items -%}
+| {{ loop.index }} | {{ item }} | {{ items[item] }} |
+{% endfor %}
 
 What is it for?
 ---
