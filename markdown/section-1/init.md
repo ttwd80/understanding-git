@@ -52,5 +52,5 @@ Changes to be committed:
 
 	new file:   Makefile
 
-$ exit
+$ 
 ```
