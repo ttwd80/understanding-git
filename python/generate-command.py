@@ -31,13 +31,14 @@ for line in lines:
     line = line.strip()
     if line:
         line = line.replace("|", "\|")
+        line = line.replace("<", "\<")
         if line.startswith("-"):
             words = line.split(" ")
             key = ""
             value = ""
             for i in range(1, len(words)):
                 if starts_with_lowercase.match(words[i]):
-                    key = " ".join(words[0: i - 1]).strip()
+                    key = " ".join(words[0: i]).strip()
                     value = " ".join(words[i:]).strip()
                     break
             if key == "":
@@ -48,7 +49,6 @@ for line in lines:
             d[last_used_key] = (d[last_used_key] + " " + line).strip()
 
 data['items'] = d
-
 
 data['example'] = {}
 for example in examples:

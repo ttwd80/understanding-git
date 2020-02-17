@@ -6,11 +6,11 @@ This commmand accepts 5 options:
 
 | No | Option | Description |
 | -- | ------- | ----------- |
-| 1 | --template <template-directory> | directory from which templates will be used |
+| 1 | --template \<template-directory> | directory from which templates will be used |
 | 2 | --bare | create a bare repository |
-| 3 | --shared[=<permissions>] | specify that the git repository is to be shared amongst several users |
+| 3 | --shared[=\<permissions>] | specify that the git repository is to be shared amongst several users |
 | 4 | -q, --quiet | be quiet |
-| 5 | --separate-git-dir <gitdir> | separate git dir from working tree |
+| 5 | --separate-git-dir \<gitdir> | separate git dir from working tree |
 
 
 
