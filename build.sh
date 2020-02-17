@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker pull python:latest
+
 echo "Setup Python"
 rm -rf markdown && mkdir markdown
 pipenv clean && pipenv run pip install -q pexpect==4.8.0 Jinja2==2.11.1 autopep8==1.5

@@ -64,16 +64,20 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
-Example 2 : --template
+Example 2 : --template <template-directory>
 ---
 ```
 $ mkdir project
 $ cd project
+$ echo git init with default values
+git init with default values
 $ git init
 Initialized empty Git repository in /home/git/project/.git/
 $ ls .git
 HEAD  branches	config	description  hooks  info  objects  refs
 $ git config core.editor
+$ git config core.logallrefupdates
+true
 $ cat .git/config
 [core]
 	repositoryformatversion = 0
@@ -83,27 +87,63 @@ $ cat .git/config
 $ rm -rf .git
 $ mkdir ${HOME}/sample
 $ echo cf8acad3b2 > ${HOME}/sample/random.txt
-$ echo '[core]' >> ${HOME}/sample/config
+$ echo 'garbage' > ${HOME}/sample/config
+$ cat ${HOME}/sample/config
+garbage
+$ echo git init with updated config - garbage value
+git init with updated config - garbage value
+$ git init . --template ${HOME}/sample
+error: key does not contain a section: garbage
+Initialized empty Git repository in /home/git/project/.git/
+$ ls .git
+HEAD  config  objects  random.txt  refs
+$ git config core.editor
+$ git config core.logallrefupdates
+true
+$ cat .git/config
+garbage
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ echo '[core]' > ${HOME}/sample/config
 $ echo 'editor = emacs' >> ${HOME}/sample/config
+$ echo 'logallrefupdates = false' >> ${HOME}/sample/config
+$ cat ${HOME}/sample/config
+[core]
+editor = emacs
+logallrefupdates = false
+$ echo git init with updated config - no indentation
+git init with updated config - no indentation
 $ git init . --template ${HOME}/sample
 Initialized empty Git repository in /home/git/project/.git/
 $ ls .git
 HEAD  config  objects  random.txt  refs
 $ git config core.editor
 emacs
+$ git config core.logallrefupdates
+false
 $ cat .git/config
 [core]
 editor = emacs
+logallrefupdates = false
 	repositoryformatversion = 0
 	filemode = true
 	bare = false
-	logallrefupdates = true
-$ git status
-On branch master
-
-No commits yet
-
-nothing to commit (create/copy files and use "git add" to track)
+$ rm -rf .git
+$ echo '[core]' > ${HOME}/sample/config
+$ echo '    editor = emacs' >> ${HOME}/sample/config
+$ echo '    logallrefupdates = false' >> ${HOME}/sample/config
+$ git init . --template ${HOME}/sample
+Initialized empty Git repository in /home/git/project/.git/
+$ echo git init with updated config - with indentation
+git init with updated config - with indentation
+$ git config core.editor
+emacs
+$ git config core.logallrefupdates
+false
 $ 
 ```
 

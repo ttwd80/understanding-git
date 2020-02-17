@@ -3,11 +3,15 @@
 <\$ $
 >cd project
 <\$ $
+>echo git init with default values
+<\$ $
 >git init
 <\$ $
 >ls .git
 <\$ $
 >git config core.editor
+<\$ $
+>git config core.logallrefupdates
 <\$ $
 >cat .git/config
 <\$ $
@@ -17,9 +21,32 @@
 <\$ $
 >echo cf8acad3b2 > ${HOME}/sample/random.txt
 <\$ $
->echo '[core]' >> ${HOME}/sample/config
+>echo 'garbage' > ${HOME}/sample/config
+<\$ $
+>cat ${HOME}/sample/config
+<\$ $
+>echo git init with updated config - garbage value
+<\$ $
+>git init . --template ${HOME}/sample
+>ls .git
+<\$ $
+>git config core.editor
+<\$ $
+>git config core.logallrefupdates
+<\$ $
+>cat .git/config
+<\$ $
+>rm -rf .git
+<\$ $
+>echo '[core]' > ${HOME}/sample/config
 <\$ $
 >echo 'editor = emacs' >> ${HOME}/sample/config
+<\$ $
+>echo 'logallrefupdates = false' >> ${HOME}/sample/config
+<\$ $
+>cat ${HOME}/sample/config
+<\$ $
+>echo git init with updated config - no indentation
 <\$ $
 >git init . --template ${HOME}/sample
 <\$ $
@@ -27,7 +54,25 @@
 <\$ $
 >git config core.editor
 <\$ $
+>git config core.logallrefupdates
+<\$ $
 >cat .git/config
 <\$ $
->git status
+>rm -rf .git
+<\$ $
+>echo '[core]' > ${HOME}/sample/config
+<\$ $
+>echo '    editor = emacs' >> ${HOME}/sample/config
+<\$ $
+>echo '    logallrefupdates = false' >> ${HOME}/sample/config
+<\$ $
+>git init . --template ${HOME}/sample
+<\$ $
+>echo git init with updated config - with indentation
+<\$ $
+>git config core.editor
+<\$ $
+>git config core.logallrefupdates
+<\$ $
+>cat .git/config
 <\$ $
