@@ -69,37 +69,104 @@ We can then run `git status` and `git add` and it will behave as expected.
 Example 2 : --template \<template-directory>
 ---
 ```
-$ mkdir project
-$ cd project
-$ touch Makefile
-$ git add Makefile
-fatal: not a git repository (or any of the parent directories): .git
-$ git status
-fatal: not a git repository (or any of the parent directories): .git
+$ ls -RF1 /usr/share/git-core/templates
+/usr/share/git-core/templates:
+branches/
+description
+hooks/
+info/
+
+/usr/share/git-core/templates/branches:
+
+/usr/share/git-core/templates/hooks:
+applypatch-msg.sample*
+commit-msg.sample*
+fsmonitor-watchman.sample*
+post-update.sample*
+pre-applypatch.sample*
+pre-commit.sample*
+pre-push.sample*
+pre-rebase.sample*
+pre-receive.sample*
+prepare-commit-msg.sample*
+update.sample*
+
+/usr/share/git-core/templates/info:
+exclude
+$ mkdir ~/project
+$ cd ~/project
 $ git init
 Initialized empty Git repository in /home/git/project/.git/
-$ git status
-On branch master
+$ ls -RF1 .git
+.git:
+HEAD
+branches/
+config
+description
+hooks/
+info/
+objects/
+refs/
 
-No commits yet
+.git/branches:
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+.git/hooks:
+applypatch-msg.sample*
+commit-msg.sample*
+fsmonitor-watchman.sample*
+post-update.sample*
+pre-applypatch.sample*
+pre-commit.sample*
+pre-push.sample*
+pre-rebase.sample*
+pre-receive.sample*
+prepare-commit-msg.sample*
+update.sample*
 
-	Makefile
+.git/info:
+exclude
 
-nothing added to commit but untracked files present (use "git add" to track)
-$ git add Makefile
-$ git status
-On branch master
+.git/objects:
+info/
+pack/
 
-No commits yet
+.git/objects/info:
 
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
+.git/objects/pack:
 
-	new file:   Makefile
+.git/refs:
+heads/
+tags/
 
+.git/refs/heads:
+
+.git/refs/tags:
+$ rm -rf .git
+$ mkdir ~/base
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ ls -RF1 .git
+.git:
+HEAD
+config
+objects/
+refs/
+
+.git/objects:
+info/
+pack/
+
+.git/objects/info:
+
+.git/objects/pack:
+
+.git/refs:
+heads/
+tags/
+
+.git/refs/heads:
+
+.git/refs/tags:
 $ 
 ```
 

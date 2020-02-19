@@ -1,9 +1,9 @@
-mkdir project
-cd project
-touch Makefile
-git add Makefile
-git status
+ls -RF1 /usr/share/git-core/templates
+mkdir ~/project
+cd ~/project
 git init
-git status
-git add Makefile
-git status
+ls -RF1 .git
+rm -rf .git
+mkdir ~/base
+git init --template ~/base
+ls -RF1 .git
