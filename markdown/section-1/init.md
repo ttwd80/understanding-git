@@ -1,7 +1,7 @@
 git init
 ===
 
-Offical documentation for [git-init](https://git-scm.com/docs/git-init/2.20.1).
+Offical documentation for [git-init](https://git-scm.com/docs/git-init/2.20.1).
 
 This commmand accepts 5 options:
 
@@ -256,7 +256,7 @@ What does this tell us?
 
 - If it the template directory contains a file called `config`, it has to be in the right format.
 - The `.git` directory will still be created but it will not be a valid repository.
-- What would be a valid content? [Here](https://git-scm.com/docs/git-config/2.20.1) are some of the values that can be used.
+- What would be a valid content? [Here](https://git-scm.com/docs/git-config/2.20.1) are some of the values that can be used.
 - How about we give that a try with `blame.showEmail` ?
 
 Example 2c:  --template \<template-directory>

@@ -16,7 +16,7 @@ env = Environment(loader=FileSystemLoader("./template"))
 data = {}
 
 data['command'] = command
-data['version'] = os.environ["TEMPLATE_SINGLE_VERSION"]
+data['version'] = os.environ["TEMPLATE_SINGLE_VERSION"].replace("\r", "").replace("\n", "")
 
 d = collections.OrderedDict()
 
