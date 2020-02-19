@@ -414,10 +414,10 @@ $ cat .git/config
 $ rm -rf .git
 $ mkdir ~/base
 $ echo "[core]" > ~/base/config
-$ echo "    filemode = false" >> ~/base/config
+$ echo "\tfilemode = false" >> ~/base/config
 $ cat ~/base/config
 [core]
-    filemode = false
+	filemode = false
 $ git init --template ~/base
 Initialized empty Git repository in /home/git/project/.git/
 $ git status
