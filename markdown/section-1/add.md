@@ -1,7 +1,8 @@
 git add
 ===
 
-Offical documentation for [git-add](https://git-scm.com/docs/git-add/2.20.1)
+Offical documentation for [git-add](https://git-scm.com/docs/git-add/2.20.1).
+
 This commmand accepts 15 options:
 
 

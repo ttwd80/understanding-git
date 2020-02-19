@@ -15,10 +15,10 @@ child = pexpect.spawn(
     "docker run --rm -it {0} {1}".format(docker_image, command_to_run), encoding='utf-8')
 child.logfile_read = sys.stdout
 child.setecho(False)
-child.expect("<\\$ $")
+child.expect("\\$ $")
 
 for line in content_array:
     line = line.rstrip("\n")
     if ((len(line) > 0) and (line[0] != "#")):
         child.sendline(line)
-        child.expect("<\\$ $")
+        child.expect("\\$ $")
