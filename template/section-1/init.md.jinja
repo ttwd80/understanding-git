@@ -22,7 +22,7 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
-Example 2 : --template <template-directory>
+Example 2 : --template \<template-directory>
 ---
 ```
 {%- for item in example['2'] %}
@@ -30,5 +30,8 @@ Example 2 : --template <template-directory>
 {%- endfor %}
 ```
 
+The `--template` option allows you to specify a directory that will be used as a template for the files in the `.git` directory. The content of the directory will be merged with the contents of git's default template directory.
+
+In the example above, the default value of the `.git/config` file does not contain a `core.editor` value and the `core.logallrefupdates` is set to `true`.
 
 {% endblock %}

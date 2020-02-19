@@ -1,6 +1,7 @@
 git init
 ===
 
+Offical documentation for [git-init](https://git-scm.com/docs/git-init/2.20.1)
 This commmand accepts 5 options:
 
 
@@ -64,13 +65,13 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
-Example 2 : --template <template-directory>
+Example 2 : --template \<template-directory>
 ---
 ```
 $ mkdir project
 $ cd project
-$ echo git init with default values
-git init with default values
+$ echo Section 1 - git init with default values
+Section 1 - git init with default values
 $ git init
 Initialized empty Git repository in /home/git/project/.git/
 $ ls .git
@@ -85,7 +86,25 @@ $ cat .git/config
 	bare = false
 	logallrefupdates = true
 $ rm -rf .git
+$ echo Section 2 - empty template directory
+Section 2 - empty template directory
 $ mkdir ${HOME}/sample
+$ git init . --template ${HOME}/sample
+Initialized empty Git repository in /home/git/project/.git/
+$ ls .git
+HEAD  config  objects  refs
+$ git config core.editor
+$ git config core.logallrefupdates
+true
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ echo Section 3 - template directory with a new file
+Section 3 - template directory with a new file
 $ echo cf8acad3b2 > ${HOME}/sample/random.txt
 $ echo 'garbage' > ${HOME}/sample/config
 $ cat ${HOME}/sample/config
@@ -147,5 +166,8 @@ false
 $ 
 ```
 
+The `--template` option allows you to specify a directory that will be used as a template for the files in the `.git` directory. The content of the directory will be merged with the contents of git's default template directory.
+
+In the example above, the default value of the `.git/config` file does not contain a `core.editor` value and the `core.logallrefupdates` is set to `true`.
 
 

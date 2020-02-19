@@ -16,10 +16,12 @@ env = Environment(loader=FileSystemLoader("./template"))
 data = {}
 
 data['command'] = command
+data['version'] = os.environ["TEMPLATE_SINGLE_VERSION"]
 
 d = collections.OrderedDict()
 
 lines = os.environ["TEMPLATE_GIT_HELP"].replace("\r", "").split("\n")
+
 
 
 def strip_ansi(line):

@@ -3,7 +3,7 @@
 <\$ $
 >cd project
 <\$ $
->echo git init with default values
+>echo Section 1 - git init with default values
 <\$ $
 >git init
 <\$ $
@@ -17,7 +17,21 @@
 <\$ $
 >rm -rf .git
 <\$ $
+>echo Section 2 - empty template directory
+<\$ $
 >mkdir ${HOME}/sample
+<\$ $
+>git init . --template ${HOME}/sample
+>ls .git
+<\$ $
+>git config core.editor
+<\$ $
+>git config core.logallrefupdates
+<\$ $
+>cat .git/config
+<\$ $
+>rm -rf .git
+>echo Section 3 - template directory with a new file
 <\$ $
 >echo cf8acad3b2 > ${HOME}/sample/random.txt
 <\$ $
