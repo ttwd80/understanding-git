@@ -65,7 +65,7 @@ What does this tell us?
 
 - If it the template directory contains a file called `config`, it has to be in the right format.
 - The `.git` directory will still be created but it will not be a valid repository.
-- What would be a valid content? [Here](https://git-scm.com/docs/git-config/{{ version }}#_variables) are some of the values that can be used.
+- What would be a valid content? [Here](https://git-scm.com/docs/git-config/{{ version }}) are some of the values that can be used.
 - How about we give that a try with `blame.showEmail` ?
 
 Example 2c:  --template \<template-directory>
@@ -111,7 +111,8 @@ Example 2f:  --template \<template-directory>
 {{ item }}
 {%- endfor %}
 ```
-
+What does this tell us?
+- Even with padding, the default value cannot be changed using `--template`
 
 
 {% endblock %}

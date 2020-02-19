@@ -256,7 +256,7 @@ What does this tell us?
 
 - If it the template directory contains a file called `config`, it has to be in the right format.
 - The `.git` directory will still be created but it will not be a valid repository.
-- What would be a valid content? [Here](https://git-scm.com/docs/git-config/2.20.1#_variables) are some of the values that can be used.
+- What would be a valid content? [Here](https://git-scm.com/docs/git-config/2.20.1) are some of the values that can be used.
 - How about we give that a try with `blame.showEmail` ?
 
 Example 2c:  --template \<template-directory>
@@ -436,7 +436,8 @@ $ cat .git/config
 	logallrefupdates = true
 $ 
 ```
-
+What does this tell us?
+- Even with padding, the default value cannot be changed using `--template`
 
 
 
