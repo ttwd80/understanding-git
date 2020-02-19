@@ -1,19 +1,9 @@
-<\$ $
->mkdir project1
-<\$ $
->cd project1
-<\$ $
->touch Makefile
-<\$ $
->git add Makefile
-<\$ $
->git status
-<\$ $
->git init
-<\$ $
->git status
-<\$ $
->git add Makefile
-<\$ $
->git status
-<\$ $
+mkdir project
+cd project
+touch Makefile
+git add Makefile
+git status
+git init
+git status
+git add Makefile
+git status
