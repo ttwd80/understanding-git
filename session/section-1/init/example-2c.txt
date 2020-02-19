@@ -1,0 +1,14 @@
+mkdir ~/project
+cd ~/project
+git init .
+git config blame.showEmail 
+cat .git/config
+rm -rf .git
+mkdir ~/base
+echo "[blame]" > ~/base/config
+echo "showEmail = true" >> ~/base/config
+cat ~/base/config
+git init --template ~/base
+git status
+git config blame.showEmail 
+cat .git/config

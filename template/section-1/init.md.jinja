@@ -39,6 +39,8 @@ What does this tell us?
   - objects directory
   - refs directory
 
+What if the template directory is not empty?
+
 Example 2a:  --template \<template-directory>
 ---
 ```
@@ -49,5 +51,30 @@ Example 2a:  --template \<template-directory>
 What does this tell us?
 
 - If a files does not conflict with the git structure, it will be copied over.
+
+What if the template directory contains a file called `config` with garbage content?
+
+Example 2b:  --template \<template-directory>
+---
+```
+{%- for item in example['2b'] %}
+{{ item }}
+{%- endfor %}
+```
+What does this tell us?
+
+- If it the template directory contains a file called `config`, it has to be in the right format.
+- The `.git` directory will still be created but it will not be a valid repository.
+- What would be a valid content? [Here](https://git-scm.com/docs/git-config/{{ version }}#_variables) are some of the values that can be used.
+- How about we give that a try with `blame.showEmail` ?
+
+Example 2c:  --template \<template-directory>
+```
+{%- for item in example['2c'] %}
+{{ item }}
+{%- endfor %}
+```
+What does this tell us?
+
 
 {% endblock %}

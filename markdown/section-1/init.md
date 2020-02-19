@@ -179,13 +179,15 @@ What does this tell us?
   - objects directory
   - refs directory
 
+What if the template directory is not empty?
+
 Example 2a:  --template \<template-directory>
 ---
 ```
 $ mkdir ~/project
 $ cd ~/project
 $ mkdir ~/base
-$ echo "something" > ~/base/content.txt
+$ echo "<html>" > ~/base/content.txt
 $ git init --template ~/base
 Initialized empty Git repository in /home/git/project/.git/
 $ ls -RF1 .git
@@ -216,5 +218,88 @@ $
 What does this tell us?
 
 - If a files does not conflict with the git structure, it will be copied over.
+
+What if the template directory contains a file called `config` with garbage content?
+
+Example 2b:  --template \<template-directory>
+---
+```
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ~/base
+$ echo "something" > ~/base/content.txt
+$ echo "<html>" > ~/base/config
+$ ls -a
+.  ..
+$ git init --template ~/base
+fatal: bad config line 1 in file /home/git/base/config
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+$ ls -a
+.  ..  .git
+$ ls -RF1 .git
+.git:
+$ cat .git/config
+cat: .git/config: No such file or directory
+$ 
+```
+What does this tell us?
+
+- If it the template directory contains a file called `config`, it has to be in the right format.
+- The `.git` directory will still be created but it will not be a valid repository.
+- What would be a valid content? [Here](https://git-scm.com/docs/git-config/2.20.1#_variables) are some of the values that can be used.
+- How about we give that a try with `blame.showEmail` ?
+
+Example 2c:  --template \<template-directory>
+```
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ git config blame.showEmail 
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ~/base
+$ echo "[blame]" > ~/base/config
+$ echo "showEmail = true" >> ~/base/config
+$ cat ~/base/config
+[blame]
+showEmail = true
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config blame.showEmail 
+true
+$ cat .git/config
+[blame]
+showEmail = true
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ 
+```
+What does this tell us?
+
 
 
