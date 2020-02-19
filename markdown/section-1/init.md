@@ -180,6 +180,7 @@ What does this tell us?
   - refs directory
 
 Example 2a:  --template \<template-directory>
+---
 ```
 $ mkdir ~/project
 $ cd ~/project
