@@ -69,12 +69,49 @@ What does this tell us?
 - How about we give that a try with `blame.showEmail` ?
 
 Example 2c:  --template \<template-directory>
+---
 ```
 {%- for item in example['2c'] %}
 {{ item }}
 {%- endfor %}
 ```
 What does this tell us?
+- The proper format will works.
+
+What if we use the proper format but with some made up content?
+
+Example 2d:  --template \<template-directory>
+---
+```
+{%- for item in example['2d'] %}
+{{ item }}
+{%- endfor %}
+```
+What does this tell us?
+- You can configure any values as long as they are in the right format? 
+
+- Can you overwrite existing ones?
+
+Example 2e:  --template \<template-directory>
+---
+```
+{%- for item in example['2e'] %}
+{{ item }}
+{%- endfor %}
+```
+What does this tell us?
+- It looks like it is not possible to overwrite existing values.
+
+- What if you add a little padding?
+
+Example 2f:  --template \<template-directory>
+---
+```
+{%- for item in example['2f'] %}
+{{ item }}
+{%- endfor %}
+```
+
 
 
 {% endblock %}

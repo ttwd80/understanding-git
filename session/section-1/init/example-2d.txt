@@ -1,0 +1,14 @@
+mkdir ~/project
+cd ~/project
+git init .
+git config magic.weapon
+cat .git/config
+rm -rf .git
+mkdir ~/base
+echo "[magic]" > ~/base/config
+echo "weapon = ring" >> ~/base/config
+cat ~/base/config
+git init --template ~/base
+git status
+git config magic.weapon
+cat .git/config

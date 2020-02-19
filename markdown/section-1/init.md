@@ -260,6 +260,7 @@ What does this tell us?
 - How about we give that a try with `blame.showEmail` ?
 
 Example 2c:  --template \<template-directory>
+---
 ```
 $ mkdir ~/project
 $ cd ~/project
@@ -300,6 +301,142 @@ showEmail = true
 $ 
 ```
 What does this tell us?
+- The proper format will works.
+
+What if we use the proper format but with some made up content?
+
+Example 2d:  --template \<template-directory>
+---
+```
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ git config magic.weapon
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ~/base
+$ echo "[magic]" > ~/base/config
+$ echo "weapon = ring" >> ~/base/config
+$ cat ~/base/config
+[magic]
+weapon = ring
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config magic.weapon
+ring
+$ cat .git/config
+[magic]
+weapon = ring
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ 
+```
+What does this tell us?
+- You can configure any values as long as they are in the right format? 
+
+- Can you overwrite existing ones?
+
+Example 2e:  --template \<template-directory>
+---
+```
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ git config core.filemode
+true
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ~/base
+$ echo "[core]" > ~/base/config
+$ echo "filemode = false" >> ~/base/config
+$ cat ~/base/config
+[core]
+filemode = false
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config core.filemode
+true
+$ cat .git/config
+[core]
+	filemode = true
+	repositoryformatversion = 0
+	bare = false
+	logallrefupdates = true
+$ 
+```
+What does this tell us?
+- It looks like it is not possible to overwrite existing values.
+
+- What if you add a little padding?
+
+Example 2f:  --template \<template-directory>
+---
+```
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ git config core.filemode
+true
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ rm -rf .git
+$ mkdir ~/base
+$ echo "[core]" > ~/base/config
+$ echo "    filemode = false" >> ~/base/config
+$ cat ~/base/config
+[core]
+    filemode = false
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config core.filemode
+true
+$ cat .git/config
+[core]
+	filemode = true
+	repositoryformatversion = 0
+	bare = false
+	logallrefupdates = true
+$ 
+```
+
 
 
 
