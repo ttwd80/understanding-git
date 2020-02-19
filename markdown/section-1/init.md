@@ -21,7 +21,7 @@ What is it for?
 Using `git init` will allow you to manipulate the specified directory with `git`. 
 
 
-Example 1 : No options, default values.
+Example 1: No options, default values.
 ---
 ```
 $ mkdir project
@@ -66,7 +66,7 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
-Example 2 : --template \<template-directory>
+Example 2: --template \<template-directory>
 ---
 ```
 $ ls -RF1 /usr/share/git-core/templates
@@ -170,8 +170,50 @@ tags/
 $ 
 ```
 
-The `--template` option allows you to specify a directory that will be used as a template for the files in the `.git` directory. The content of the directory will be merged with the contents of git's default template directory.
+What does this tell us?
 
-In the example above, the default value of the `.git/config` file does not contain a `core.editor` value and the `core.logallrefupdates` is set to `true`.
+- `git init` without the `--template` option will use `/usr/share/git-core/templates` as the template directory.
+- `git init` with the `--template` option on an empty template directory would still create:
+  - HEAD file
+  - config file
+  - objects directory
+  - refs directory
+
+Example 2a:  --template \<template-directory>
+```
+$ mkdir ~/project
+$ cd ~/project
+$ mkdir ~/base
+$ echo "something" > ~/base/content.txt
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ ls -RF1 .git
+.git:
+HEAD
+config
+content.txt
+objects/
+refs/
+
+.git/objects:
+info/
+pack/
+
+.git/objects/info:
+
+.git/objects/pack:
+
+.git/refs:
+heads/
+tags/
+
+.git/refs/heads:
+
+.git/refs/tags:
+$ 
+```
+What does this tell us?
+
+- If a files does not conflict with the git structure, it will be copied over.
 
 

@@ -1,0 +1,6 @@
+mkdir ~/project
+cd ~/project
+mkdir ~/base
+echo "something" > ~/base/content.txt
+git init --template ~/base
+ls -RF1 .git
