@@ -504,5 +504,25 @@ $
 What does this tell us?
 - The directory structure will be created but it will not be a proper git repository.
 
+Example 3:  --bare
+---
+```
+$ cd ~
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init --bare
+Initialized empty Git repository in /home/git/project/
+$ git status
+fatal: this operation must be run in a work tree
+$ echo hello > hello.txt
+$ git add hello.txt
+fatal: this operation must be run in a work tree
+$ 
+```
+
+What does this tell us?
+- the bare repository behaves differently.
+
 
 

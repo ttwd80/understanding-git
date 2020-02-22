@@ -138,5 +138,16 @@ Example 2h:  --template \<template-directory>
 What does this tell us?
 - The directory structure will be created but it will not be a proper git repository.
 
+Example 3:  --bare
+---
+```
+{%- for item in example['3'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- the bare repository behaves differently.
+
 
 {% endblock %}

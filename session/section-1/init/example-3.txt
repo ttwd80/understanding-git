@@ -1,0 +1,8 @@
+cd ~
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git init --bare
+git status
+echo hello > hello.txt
+git add hello.txt
