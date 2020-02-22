@@ -114,5 +114,29 @@ Example 2f:  --template \<template-directory>
 What does this tell us?
 - Even with padding, the default value cannot be changed using `--template`
 
+Example 2g:  --template \<template-directory>
+---
+```
+{%- for item in example['2g'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- If you specify `HEAD` file, it will display `Reinitialized existing Git repository` instead of `Initialized empty Git repository`.
+
+- What if `HEAD` was not in the correct format?
+
+Example 2h:  --template \<template-directory>
+---
+```
+{%- for item in example['2h'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- The directory structure will be created but it will not be a proper git repository.
+
 
 {% endblock %}

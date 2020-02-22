@@ -1,0 +1,11 @@
+cd ~
+rm -rf ~/base
+mkdir ~/base
+echo "<br/>" > ~/base/HEAD
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git init  --template ~/base
+cat .git/HEAD
+git status
+ls -a .git

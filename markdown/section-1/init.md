@@ -439,5 +439,69 @@ $
 What does this tell us?
 - Even with padding, the default value cannot be changed using `--template`
 
+Example 2g:  --template \<template-directory>
+---
+```
+$ cd ~
+$ rm -rf ~/base
+$ mkdir ~/base
+$ echo "ref: refs/heads/prime" > ~/base/HEAD
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init  --template ~/base
+Reinitialized existing Git repository in /home/git/project/.git/
+$ cat .git/HEAD
+ref: refs/heads/prime
+$ git status
+On branch prime
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init
+Initialized empty Git repository in /home/git/project/.git/
+$ cat .git/HEAD
+ref: refs/heads/master
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ 
+```
+
+What does this tell us?
+- If you specify `HEAD` file, it will display `Reinitialized existing Git repository` instead of `Initialized empty Git repository`.
+
+- What if `HEAD` was not in the correct format?
+
+Example 2h:  --template \<template-directory>
+---
+```
+$ cd ~
+$ rm -rf ~/base
+$ mkdir ~/base
+$ echo "<br/>" > ~/base/HEAD
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init  --template ~/base
+Reinitialized existing Git repository in /home/git/project/.git/
+$ cat .git/HEAD
+<br/>
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+$ ls -a .git
+.  ..  HEAD  config  objects  refs
+$ 
+```
+
+What does this tell us?
+
 
 
