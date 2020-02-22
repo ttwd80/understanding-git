@@ -502,6 +502,7 @@ $
 ```
 
 What does this tell us?
+- The directory structure will be created but it will not be a proper git repository.
 
 
 
