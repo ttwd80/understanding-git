@@ -132,7 +132,7 @@ pipenv run python \
 export GIT_COMMAND="init"
 echo "Processing section-1/${GIT_COMMAND}.md 21/39..."
 export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "git ${GIT_COMMAND} -help | grep -v ^usage:")"
-export EXAMPLES="1 2 2a 2b 2c 2d 2e 2f 2g 2h 3"
+export EXAMPLES="$(echo ./session/section-1/init/example-*.txt | sed -e 's#./session/section-1/init/example-##g' -e 's/.txt//g')"
 for ID in ${EXAMPLES}
 do
     export TEMPLATE_GIT_EXAMPLE_${ID}="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-${ID}.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"

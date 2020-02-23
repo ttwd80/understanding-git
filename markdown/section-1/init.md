@@ -524,5 +524,84 @@ $
 What does this tell us?
 - the bare repository behaves differently.
 
+Example 3a:  --bare
+---
+```
+$ cd ~
+$ rm -rf ~/project ~/project1 ~/project2
+$ mkdir  ~/project ~/project1 ~/project2
+$ cd ~/project
+$ git init --bare
+Initialized empty Git repository in /home/git/project/
+$ cd ~/project1
+$ git init
+Initialized empty Git repository in /home/git/project1/.git/
+$ echo "hello" > hello.txt
+$ git config user.name "John Doe"
+$ git config user.email johndoe@example.com
+$ git add hello.txt
+$ git commit -m "first commit"
+[master (root-commit) 93bddd5] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+$ git remote add origin ~/project
+$ git push --set-upstream origin master
+Enumerating objects: 3, done.
+Counting objects:  33% (1/3)   Counting objects:  66% (2/3)   Counting objects: 100% (3/3)   Counting objects: 100% (3/3), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 219 bytes | 219.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To /home/git/project
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+$ ls hello.txt
+hello.txt
+$ cd ~/project2
+$ ls hello.txt
+ls: cannot access 'hello.txt': No such file or directory
+$ git clone ~/project .
+Cloning into '.'...
+done.
+$ ls hello.txt
+hello.txt
+$ cd ~/project1
+$ echo new > new.txt
+$ git add new.txt
+$ git commit -m "adding new file"
+[master 00e2013] adding new file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new.txt
+$ git push
+Enumerating objects: 4, done.
+Counting objects:  25% (1/4)   Counting objects:  50% (2/4)   Counting objects:  75% (3/4)   Counting objects: 100% (4/4)   Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects:  50% (1/2)   Compressing objects: 100% (2/2)   Compressing objects: 100% (2/2), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 278 bytes | 278.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To /home/git/project
+   93bddd5..00e2013  master -> master
+$ cd ~/project2
+$ ls new.txt
+ls: cannot access 'new.txt': No such file or directory
+$ git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects:  25% (1/4)   remote: Counting objects:  50% (2/4)   remote: Counting objects:  75% (3/4)   remote: Counting objects: 100% (4/4)   remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects:  50% (1/2)   remote: Compressing objects: 100% (2/2)   remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects:  33% (1/3)   Unpacking objects:  66% (2/3)   Unpacking objects: 100% (3/3)   Unpacking objects: 100% (3/3), done.
+From /home/git/project
+   93bddd5..00e2013  master     -> origin/master
+Updating 93bddd5..00e2013
+Fast-forward
+ new.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new.txt
+$ ls new.txt
+new.txt
+$ 
+```
+
+What does this tell us?
+- the bare repository behaves differently.
+
 
 
