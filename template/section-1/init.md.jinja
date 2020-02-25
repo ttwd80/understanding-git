@@ -138,6 +138,21 @@ Example 2h:  --template \<template-directory>
 What does this tell us?
 - The directory structure will be created but it will not be a proper git repository.
 
+- What you run `git init` on an existing git repository?
+
+Example 2i:  --template \<template-directory>
+---
+```
+{%- for item in example['2i'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- `git init --template` on an existing git repository
+   - will copy over new files in the template directory.
+   - will not overwrite/merge/delete any file that already exist.
+
 Example 3:  --bare
 ---
 ```
@@ -158,7 +173,8 @@ Example 3a:  --bare
 ```
 
 What does this tell us?
-- the bare repository behaves differently.
+- We can push-to/clone-from/pull-from the bare repository.
+
 
 
 {% endblock %}

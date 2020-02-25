@@ -504,6 +504,101 @@ $
 What does this tell us?
 - The directory structure will be created but it will not be a proper git repository.
 
+- What you run `git init` on an existing git repository?
+
+Example 2i:  --template \<template-directory>
+---
+```
+$ cd ~
+$ rm -rf ~/base
+$ mkdir ~/base
+$ echo "ref: refs/heads/prime" > ~/base/HEAD
+$ echo hello > ~/base/hello.txt
+$ echo "[blame]" > ~/base/config
+$ echo "showEmail = true" >> ~/base/config
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init  --template ~/base
+Reinitialized existing Git repository in /home/git/project/.git/
+$ ls -a .git
+.  ..  HEAD  config  hello.txt	objects  refs
+$ cat .git/HEAD
+ref: refs/heads/prime
+$ cat .git/config
+[blame]
+showEmail = true
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ git status
+On branch prime
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config blame.showEmail
+true
+$ git init .
+Reinitialized existing Git repository in /home/git/project/.git/
+$ ls -a .git
+.   HEAD      config	   hello.txt  info     refs
+..  branches  description  hooks      objects
+$ cat .git/HEAD
+ref: refs/heads/prime
+$ cat .git/config
+[blame]
+showEmail = true
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ git status
+On branch prime
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config blame.showEmail
+true
+$ echo "[blame]" > ~/base/config
+$ echo "showEmail = false" >> ~/base/config
+$ echo aloha > ~/base/aloha.txt
+$ rm ~/base/hello.txt
+$ git init  --template ~/base
+Reinitialized existing Git repository in /home/git/project/.git/
+$ ls -a .git
+.   HEAD       branches  description  hooks  objects
+..  aloha.txt  config	 hello.txt    info   refs
+$ cat .git/HEAD
+ref: refs/heads/prime
+$ cat .git/config
+[blame]
+showEmail = true
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+$ git status
+On branch prime
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ git config blame.showEmail
+true
+$ 
+```
+
+What does this tell us?
+- `git init --template` on an existing git repository
+   - will copy over new files in the template directory.
+   - will not overwrite/merge/delete any file that already exist.
+
 Example 3:  --bare
 ---
 ```
@@ -540,18 +635,9 @@ $ echo "hello" > hello.txt
 $ git config user.name "John Doe"
 $ git config user.email johndoe@example.com
 $ git add hello.txt
-$ git commit -m "first commit"
-[master (root-commit) 93bddd5] first commit
- 1 file changed, 1 insertion(+)
- create mode 100644 hello.txt
+$ git commit -m "first commit" -q
 $ git remote add origin ~/project
-$ git push --set-upstream origin master
-Enumerating objects: 3, done.
-Counting objects:  33% (1/3)   Counting objects:  66% (2/3)   Counting objects: 100% (3/3)   Counting objects: 100% (3/3), done.
-Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 219 bytes | 219.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To /home/git/project
- * [new branch]      master -> master
+$ git push -q --set-upstream origin master 
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 $ ls hello.txt
 hello.txt
@@ -566,42 +652,20 @@ hello.txt
 $ cd ~/project1
 $ echo new > new.txt
 $ git add new.txt
-$ git commit -m "adding new file"
-[master 00e2013] adding new file
- 1 file changed, 1 insertion(+)
- create mode 100644 new.txt
-$ git push
-Enumerating objects: 4, done.
-Counting objects:  25% (1/4)   Counting objects:  50% (2/4)   Counting objects:  75% (3/4)   Counting objects: 100% (4/4)   Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-Compressing objects:  50% (1/2)   Compressing objects: 100% (2/2)   Compressing objects: 100% (2/2), done.
-Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 278 bytes | 278.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To /home/git/project
-   93bddd5..00e2013  master -> master
+$ git commit -m "adding new file" -q
+$ git push -q
 $ cd ~/project2
 $ ls new.txt
 ls: cannot access 'new.txt': No such file or directory
-$ git pull
-remote: Enumerating objects: 4, done.
-remote: Counting objects:  25% (1/4)   remote: Counting objects:  50% (2/4)   remote: Counting objects:  75% (3/4)   remote: Counting objects: 100% (4/4)   remote: Counting objects: 100% (4/4), done.
-remote: Compressing objects:  50% (1/2)   remote: Compressing objects: 100% (2/2)   remote: Compressing objects: 100% (2/2), done.
-remote: Total 3 (delta 0), reused 0 (delta 0)
-Unpacking objects:  33% (1/3)   Unpacking objects:  66% (2/3)   Unpacking objects: 100% (3/3)   Unpacking objects: 100% (3/3), done.
-From /home/git/project
-   93bddd5..00e2013  master     -> origin/master
-Updating 93bddd5..00e2013
-Fast-forward
- new.txt | 1 +
- 1 file changed, 1 insertion(+)
- create mode 100644 new.txt
+$ git pull -q
 $ ls new.txt
 new.txt
 $ 
 ```
 
 What does this tell us?
-- the bare repository behaves differently.
+- We can push-to/clone-from/pull-from the bare repository.
+
 
 
 

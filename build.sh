@@ -135,6 +135,7 @@ export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c
 export EXAMPLES="$(echo ./session/section-1/init/example-*.txt | sed -e 's#./session/section-1/init/example-##g' -e 's/.txt//g')"
 for ID in ${EXAMPLES}
 do
+    echo "Processing section-1/init.md ${ID}..."
     export TEMPLATE_GIT_EXAMPLE_${ID}="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-${ID}.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 done
 pipenv run python \
