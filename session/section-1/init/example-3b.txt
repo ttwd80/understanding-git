@@ -1,0 +1,19 @@
+cd ~
+rm -rf ~/project
+mkdir  ~/project
+cd ~/project
+mkdir ~/project/project1
+cd ~/project/project1
+git init
+git config user.name "John Doe"
+git config user.email johndoe@example.com
+echo "hello" > hello.txt
+git add hello.txt
+git commit -m "first commit" -q
+cd ~/project
+git clone ~/project/project1      project2
+ls -a project2
+rm -rf project2
+ls -a project2
+git clone ~/project/project1/.git project2
+ls -a project2

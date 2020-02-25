@@ -666,6 +666,43 @@ $
 What does this tell us?
 - We can push-to/clone-from/pull-from the bare repository.
 
+Can we clone from .git?
+
+Example 3b: --bare
+---
+```
+$ cd ~
+$ rm -rf ~/project
+$ mkdir  ~/project
+$ cd ~/project
+$ mkdir ~/project/project1
+$ cd ~/project/project1
+$ git init
+Initialized empty Git repository in /home/git/project/project1/.git/
+$ git config user.name "John Doe"
+$ git config user.email johndoe@example.com
+$ echo "hello" > hello.txt
+$ git add hello.txt
+$ git commit -m "first commit" -q
+$ cd ~/project
+$ git clone ~/project/project1      project2
+Cloning into 'project2'...
+done.
+$ ls -a project2
+.  ..  .git  hello.txt
+$ rm -rf project2
+$ ls -a project2
+ls: cannot access 'project2': No such file or directory
+$ git clone ~/project/project1/.git project2
+Cloning into 'project2'...
+done.
+$ ls -a project2
+.  ..  .git  hello.txt
+$ 
+```
+
+What does this tell us?
+- We can push-to/clone-from/pull-from the non-bare repository too.
 
 
 
