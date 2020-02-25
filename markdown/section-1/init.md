@@ -771,5 +771,51 @@ What does this tell us?
 - If `--shared=all` or `--shared=world` or `--shared=everybody`, it is the same as  `--shared=group` + readable by others.
 - If `--shared=0xxx`, the repository will be created with the octal permission. The option `--shared=0606` will create a `.git` direcrory with the permission `drwx--Srwx`.
 
+Example 5: -q
+---
+```
+$ cd ~
+$ rm -rf ~/base 
+$ mkdir ~/base
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init
+Initialized empty Git repository in /home/git/project/.git/
+$ rm -rf .git
+$ git init -q
+$ rm -rf .git
+$ git init --bare
+Initialized empty Git repository in /home/git/project/
+$ cd ~
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init --bare -q
+$ cd ~
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init --template ~/base
+Initialized empty Git repository in /home/git/project/.git/
+$ rm -rf .git
+$ git init --template ~/base -q
+$ rm -rf .git
+$ git init --shared=all
+Initialized empty shared Git repository in /home/git/project/.git/
+$ rm -rf .git
+$ git init --shared=all -q
+$ rm -rf .git
+$ git init --separate-git-dir=something
+Initialized empty Git repository in /home/git/project/something/
+$ rm -rf .git
+$ git init --separate-git-dir=something -q
+$ rm -rf .git
+$ 
+```
+
+What does this tell us?
+- Adding `-q` makes it less verbose.
+
 
 

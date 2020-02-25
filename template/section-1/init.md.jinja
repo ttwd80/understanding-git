@@ -202,5 +202,16 @@ What does this tell us?
 - If `--shared=all` or `--shared=world` or `--shared=everybody`, it is the same as  `--shared=group` + readable by others.
 - If `--shared=0xxx`, the repository will be created with the octal permission. The option `--shared=0606` will create a `.git` direcrory with the permission `drwx--Srwx`.
 
+Example 5: -q
+---
+```
+{%- for item in example['5'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- Adding `-q` makes it less verbose.
+
 
 {% endblock %}
