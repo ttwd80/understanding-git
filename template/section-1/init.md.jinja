@@ -188,5 +188,19 @@ Example 3b: --bare
 What does this tell us?
 - We can push-to/clone-from/pull-from the non-bare repository too.
 
+Example 4: --shared
+---
+```
+{%- for item in example['4'] %}
+{{ item }}
+{%- endfor %}
+```
+
+What does this tell us?
+- If `--shared` is ommitted, it is the same as `--shared=umask` or `--shared=false`. It is not shared and the `.git` direcrory would be created as the `umask` value.
+- If `--shared` is specified, but no value is given, it is the same as `--shared=group` or `--shared=true`. Users from the same group have access to the `.git` directory.
+- If `--shared=all` or `--shared=world` or `--shared=everybody`, it is the same as  `--shared=group` + readable by others.
+- If `--shared=0xxx`, the repository will be created with the octal permission. The option `--shared=0606` will create a `.git` direcrory with the permission `drwx--Srwx`.
+
 
 {% endblock %}

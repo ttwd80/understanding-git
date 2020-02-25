@@ -1,0 +1,34 @@
+cd ~
+rm -rf ~/project
+mkdir ~/project
+umask 027
+umask
+git init . 
+stat .git | grep Gid
+rm -rf .git
+git init --shared
+stat .git | grep Gid
+rm -rf .git
+git init --shared=false
+stat .git | grep Gid
+rm -rf .git
+git init --shared=umask
+stat .git | grep Gid
+rm -rf .git
+git init --shared=group
+stat .git | grep Gid
+rm -rf .git
+git init --shared=true
+stat .git | grep Gid
+rm -rf .git
+git init --shared=all
+stat .git | grep Gid
+rm -rf .git
+git init --shared=world
+stat .git | grep Gid
+rm -rf .git
+git init --shared=everybody
+stat .git | grep Gid
+rm -rf .git
+git init --shared=0606
+stat .git | grep Gid

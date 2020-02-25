@@ -704,5 +704,72 @@ $
 What does this tell us?
 - We can push-to/clone-from/pull-from the non-bare repository too.
 
+Example 4: --shared
+---
+```
+$ cd ~
+$ rm -rf ~/project
+$ mkdir ~/project
+$ umask 027
+$ umask
+0027
+$ git init . 
+Initialized empty Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (0750/drwxr-x---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2770/drwxrws---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=false
+Initialized empty Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (0750/drwxr-x---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=umask
+Initialized empty Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (0750/drwxr-x---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=group
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2770/drwxrws---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=true
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2770/drwxrws---)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=all
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2775/drwxrwsr-x)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=world
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2775/drwxrwsr-x)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=everybody
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2775/drwxrwsr-x)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ rm -rf .git
+$ git init --shared=0606
+Initialized empty shared Git repository in /home/git/.git/
+$ stat .git | grep Gid
+Access: (2707/drwx--Srwx)  Uid: ( 1000/     git)   Gid: ( 1000/     git)
+$ 
+```
+
+What does this tell us?
+- If `--shared` is ommitted, it is the same as `--shared=umask` or `--shared=false`. It is not shared and the `.git` direcrory would be created as the `umask` value.
+- If `--shared` is specified, but no value is given, it is the same as `--shared=group` or `--shared=true`. Users from the same group have access to the `.git` directory.
+- If `--shared=all` or `--shared=world` or `--shared=everybody`, it is the same as  `--shared=group` + readable by others.
+- If `--shared=0xxx`, the repository will be created with the octal permission. The option `--shared=0606` will create a `.git` direcrory with the permission `drwx--Srwx`.
+
 
 
