@@ -1,0 +1,34 @@
+cd ~
+rm -rf ~/base 
+mkdir ~/base
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git init
+rm -rf .git
+git init -q
+rm -rf .git
+git init --bare
+cd ~
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git init --bare -q
+cd ~
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git init --template ~/base
+rm -rf .git
+git init --template ~/base -q
+rm -rf .git
+git init --shared=all
+rm -rf .git
+git init --shared=all -q
+rm -rf .git
+git init --separate-git-dir=something
+rm -rf .git
+git init --separate-git-dir=something -q
+rm -rf .git
+
+

@@ -66,6 +66,65 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
+What if we run `git init` twice?
+
+Example 1a: No options, default values (twice)
+---
+```
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git init .
+Initialized empty Git repository in /home/git/project/.git/
+$ ls -1 .git
+HEAD
+branches
+config
+description
+hooks
+info
+objects
+refs
+$ ls -1 .git/hooks/pre*
+.git/hooks/pre-applypatch.sample
+.git/hooks/pre-commit.sample
+.git/hooks/pre-push.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+$ rm .git/hooks/pre*
+$ ls -1 .git/hooks/pre*
+ls: cannot access '.git/hooks/pre*': No such file or directory
+$ ls -1 .git/hooks/empty.sample
+ls: cannot access '.git/hooks/empty.sample': No such file or directory
+$ echo "empty" > .git/hooks/empty.sample
+$ ls -1 .git/hooks/empty.sample
+.git/hooks/empty.sample
+$ git init .
+Reinitialized existing Git repository in /home/git/project/.git/
+$ ls -1 .git
+HEAD
+branches
+config
+description
+hooks
+info
+objects
+refs
+$ ls -1 .git/hooks/pre*
+.git/hooks/pre-applypatch.sample
+.git/hooks/pre-commit.sample
+.git/hooks/pre-push.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+$ ls -1 .git/hooks/empty.sample
+.git/hooks/empty.sample
+$ 
+```
+Running `git init` twice will re-init the `.git` directory, copying files that that was initially there but not removing any new files.
+
+
 Example 2: --template \<template-directory>
 ---
 ```

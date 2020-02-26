@@ -22,6 +22,18 @@ The command `git init` makes it a git repository. Since we did not specify any d
 
 We can then run `git status` and `git add` and it will behave as expected.
 
+What if we run `git init` twice?
+
+Example 1a: No options, default values (twice)
+---
+```
+{%- for item in example['1a'] %}
+{{ item }}
+{%- endfor %}
+```
+Running `git init` twice will re-init the `.git` directory, copying files that that was initially there but not removing any new files.
+
+
 Example 2: --template \<template-directory>
 ---
 ```
