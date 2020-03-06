@@ -32,3 +32,4 @@ for line in content_array:
     if ((len(line) > 1) and (line[0] != "#")):
         child.sendline(line)
         child.expect(expect_prompt)
+child.sendline("exit")
