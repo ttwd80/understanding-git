@@ -26,4 +26,98 @@ This commmand accepts 15 options:
 
 
 
+What is it for?
+---
+Using `git add` will allow you to add files to the repository.
+
+
+Example 1: No options, default values.
+---
+```
+$ rm -rf ~/project
+$ mkdir ~/project
+$ cd ~/project
+$ git config --global user.name "Mona Lisa"
+$ git config --global user.email "email@example.com"
+$ git init
+Initialized empty Git repository in /home/git/project/.git/
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+$ echo "a" > a.txt
+$ echo "b" > b.txt
+$ echo "c" > c.txt
+$ ls -1
+a.txt
+b.txt
+c.txt
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	a.txt
+	b.txt
+	c.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add a.txt
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   a.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	b.txt
+	c.txt
+
+$ git commit -m "first commit"
+[master (root-commit) 4dc1c74] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 a.txt
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	b.txt
+	c.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add b.txt c.txt
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   b.txt
+	new file:   c.txt
+
+$ git commit -m "another commit"
+[master b8b4d3b] another commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 b.txt
+ create mode 100644 c.txt
+$ git status
+On branch master
+nothing to commit, working tree clean
+$ ls -1
+a.txt
+b.txt
+c.txt
+$ 
+```
 

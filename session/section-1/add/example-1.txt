@@ -1,0 +1,21 @@
+rm -rf ~/project
+mkdir ~/project
+cd ~/project
+git config --global user.name "Mona Lisa"
+git config --global user.email "email@example.com"
+git init
+git status
+echo "a" > a.txt
+echo "b" > b.txt
+echo "c" > c.txt
+ls -1
+git status
+git add a.txt
+git status
+git commit -m "first commit"
+git status
+git add b.txt c.txt
+git status
+git commit -m "another commit"
+git status
+ls -1

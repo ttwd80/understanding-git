@@ -106,14 +106,20 @@ pipenv run python \
 
 # Section 1/8, Command 1/39
 # git add
-echo "Processing section-1/add.md 1/39..."
 export GIT_COMMAND="add"
-export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "mkdir /tmp/git && cd /tmp/git && git init -q . && git ${GIT_COMMAND} -help | grep -v ^usage:")"
+echo "Processing section-1/add.md 1/39..."
+export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - -c "useradd  git  --create-home -s /bin/sh && su - git -s /bin/mkdir /home/git/project && cd /home/git/project && git init -q && git ${GIT_COMMAND} -help | grep -v '^usage:' | grep -v '^   or:'")"
+export EXAMPLES="$(echo ./session/section-1/${GIT_COMMAND}/example-*.txt | sed -e "s#./session/section-1/${GIT_COMMAND}/example-##g" -e 's/.txt//g')"
+for ID in ${EXAMPLES}
+do
+    echo "Processing section-1/${GIT_COMMAND}.md ${ID}..."
+    export TEMPLATE_GIT_EXAMPLE_${ID}="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-${ID}.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
+done
 pipenv run python \
     ./python/generate-command.py \
     ${GIT_COMMAND} \
     ./section-1/${GIT_COMMAND}.md.jinja \
-    "" > ./markdown/section-1/${GIT_COMMAND}.md
+    "$(echo ${EXAMPLES} | sed 's/ /,/g')" > ./markdown/section-1/${GIT_COMMAND}.md
 
 # Section 1/8, Command 2/39
 # git am
@@ -132,10 +138,10 @@ pipenv run python \
 export GIT_COMMAND="init"
 echo "Processing section-1/${GIT_COMMAND}.md 21/39..."
 export TEMPLATE_GIT_HELP="$(docker run -it --rm python su - backup -s /bin/sh -c "git ${GIT_COMMAND} -help | grep -v ^usage:")"
-export EXAMPLES="$(echo ./session/section-1/init/example-*.txt | sed -e 's#./session/section-1/init/example-##g' -e 's/.txt//g')"
+export EXAMPLES="$(echo ./session/section-1/${GIT_COMMAND}/example-*.txt | sed -e "s#./session/section-1/${GIT_COMMAND}/example-##g" -e 's/.txt//g')"
 for ID in ${EXAMPLES}
 do
-    echo "Processing section-1/init.md ${ID}..."
+    echo "Processing section-1/${GIT_COMMAND}.md ${ID}..."
     export TEMPLATE_GIT_EXAMPLE_${ID}="$(pipenv run python python/docker-execute.py session/section-1/${GIT_COMMAND}/example-${ID}.txt python "su - -c 'useradd -m git -s /bin/sh && su - git'")"
 done
 pipenv run python \
