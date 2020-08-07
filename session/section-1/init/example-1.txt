@@ -1,9 +1,0 @@
-mkdir project
-cd project
-touch Makefile
-git add Makefile
-git status
-git init
-git status
-git add Makefile
-git status

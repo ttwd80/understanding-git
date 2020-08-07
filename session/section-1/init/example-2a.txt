@@ -1,6 +1,0 @@
-mkdir ~/project
-cd ~/project
-mkdir ~/base
-echo "<html>" > ~/base/content.txt
-git init --template ~/base
-ls -RF1 .git
